@@ -18,6 +18,23 @@ These are original to this fork and came from its maintainer:
 - **The evaluation design:** blind pairwise comparison against earlier versions in both presentation orders, explicit tests for invented feelings and magnitude distortion, and treating detector output as a signal rather than ground truth.
 - **The "personality and soul" voice guidance** the maintainer brought in, adapted here so that it adds no invented content.
 
+## Where each contribution lives
+
+Commits are on the `shakthi/v4` branch. Replace the short hashes with links once the fork is published.
+
+| Contribution | Where to see it | Commit |
+|---|---|---|
+| Strict-fidelity goal | `SKILL.md` "How to work" step 2, README "What 4.0 changes" | `dccbe14`, `4bfe3b6` |
+| Sharpen feelings, never invent them | `SKILL.md` "Voice" and "What to return" | `dccbe14` |
+| Magnitude and claim-strength preservation | `SKILL.md` "How to work" step 2; `eval/samples/19`–`23` | `dccbe14`, `771bcf7` |
+| Academic-register rules | `SKILL.md` "Voice" (academic bullet), §9, §12, §13 | `dccbe14` |
+| Blind judging in both presentation orders | `eval/blind_pairs.py`, `eval/judge.py`, `eval/blind/` | `771bcf7` |
+| Invented-feeling and distortion tests | `eval/test_fidelity.py`, `keep`/`forbid` in `eval/samples/` | `771bcf7` |
+| Detector evidence and its interpretation | README "Detectors: what is documented and what is not" | `4bfe3b6` |
+| Human evaluation design | `eval/human_eval.py`, `eval/human/` | `771bcf7` |
+
+The upstream history (everything up to `225a6f3`, blader/humanizer 3.1.0) is unchanged on this branch.
+
 ## How the v4.0.0 code and text were produced
 
 The fork's changes were implemented with an AI coding assistant (Claude) working under the maintainer's direction. That covers the edits to `SKILL.md`, the evaluation harness in `eval/` (`tells.py`, `test_fidelity.py`, `run.py`, `judge.py`, `blind_pairs.py`), the evaluation samples, and the documentation. The maintainer set the goals, the rules, and the acceptance criteria and made the design decisions; the assistant wrote most of the code and prose. The blind evaluations were run with separate model instances as rewriters and judges.
