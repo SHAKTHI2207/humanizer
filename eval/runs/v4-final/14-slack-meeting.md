@@ -1,0 +1,1 @@
+Hi Tom, thanks for including me. I have a dentist appointment at 3pm tomorrow that I can't reschedule, but I can join from 3:30. I've already left written comments on the Q3 roadmap doc, so you'll have my input before I get there.

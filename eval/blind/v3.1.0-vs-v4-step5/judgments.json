@@ -1,0 +1,254 @@
+{
+ "01-blog-sourdough": [
+  {
+   "human": "v4-step5",
+   "faithful": "v3.1.0",
+   "why": "X has a more personal voice but adds 'finally stopped worrying', while Y stays closer to the original claims.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v3.1.0",
+   "why": "Y has a stronger personal voice but invents details like forgetting to feed the starter and having stopped worrying, while X stays close to the original.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "02-blog-remote-work": [
+  {
+   "human": "v4-step5",
+   "faithful": "v3.1.0",
+   "why": "Y sounds like a real lead writing, but it invents 'that one still bothers me', which X avoids.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v3.1.0",
+   "why": "X sounds more personal but adds an invented feeling ('that one still bothers me'), while Y adds nothing.",
+   "x_was": "v4-step5"
+  }
+ ],
+ "03-blog-product-launch": [
+  {
+   "human": "v3.1.0",
+   "faithful": "v4-step5",
+   "why": "X drops the announcement boilerplate but invents invoices that 'send themselves on a schedule'.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v3.1.0",
+   "faithful": "v4-step5",
+   "why": "Y is plainer and drops the announcement boilerplate, but X keeps the 'invoicing tool for freelancers' framing more exactly and Y's 'send themselves on a schedule' is a small addition.",
+   "x_was": "v4-step5"
+  }
+ ],
+ "04-email-deadline": [
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "Both keep every fact, and Y's tone is warmer and less curt than X's 'tell me what time does'.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "Both keep every fact; X's thanks for flexibility sounds more like a real colleague than Y's blunter wording.",
+   "x_was": "v4-step5"
+  }
+ ],
+ "05-email-followup": [
+  {
+   "human": "v3.1.0",
+   "faithful": "tie",
+   "why": "Y is tighter and more natural, and both keep all the required facts.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v3.1.0",
+   "faithful": "tie",
+   "why": "Both keep all the facts; X is tighter, while Y's closing 'keep talking about where we could help' still has some sales filler.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "06-email-decline": [
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "Y flows more naturally as a decline note, and both preserve the facts.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "The two are nearly identical and keep every fact; X cuts the formulaic 'I'm honored' line.",
+   "x_was": "v4-step5"
+  }
+ ],
+ "07-tech-readme": [
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "X adds a 'skips repeated work' benefit line, while Y keeps the 'future release' wording plain and true to the original.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "Y adds an unsupported benefit claim ('skips repeated work'); otherwise the two are equivalent.",
+   "x_was": "v4-step5"
+  }
+ ],
+ "08-tech-postmortem": [
+  {
+   "human": "v4-step5",
+   "faithful": "v3.1.0",
+   "why": "X drops the aphorism, but its lessons section says the outage 'took down checkout', which overstates the 30% failure rate.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v3.1.0",
+   "why": "Y swaps the stock aphorism for a concrete lesson but overstates the impact by saying the outage 'took down checkout' when only 30% of requests failed.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "09-tech-pr-description": [
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "X adds an invented rationale about how the vendor delivers events, and Y omits the fluffy Why section.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "Y adds an invented rationale section ('fits how the vendor delivers events') that the original does not support.",
+   "x_was": "v4-step5"
+  }
+ ],
+ "10-essay-cities": [
+  {
+   "human": "v4-step5",
+   "faithful": "v3.1.0",
+   "why": "Y reads more naturally, but X keeps the essay's explicit argument for removing parking minimums.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v3.1.0",
+   "faithful": "tie",
+   "why": "Y ends on a clear position where X's last line is limp; both keep every fact, with small rewordings of the original's claims.",
+   "x_was": "v4-step5"
+  }
+ ],
+ "11-essay-reading": [
+  {
+   "human": "v4-step5",
+   "faithful": "v3.1.0",
+   "why": "Y cuts the cliche opener and closer, while X keeps more of the original's claims.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v3.1.0",
+   "why": "X drops the cliched 'window into worlds' opening and the moralizing close, but Y keeps more of the original's claims.",
+   "x_was": "v4-step5"
+  }
+ ],
+ "12-essay-ai-art": [
+  {
+   "human": "v4-step5",
+   "faithful": "v3.1.0",
+   "why": "Y has a real first-person voice but reinterprets the consent problem, which X states as the original does.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "Y keeps a grand closing line about unrealized potential, while X's conclusion is concrete; both keep all four facts.",
+   "x_was": "v4-step5"
+  }
+ ],
+ "13-slack-flaky-test": [
+  {
+   "human": "v3.1.0",
+   "faithful": "v3.1.0",
+   "why": "Y names the test and ties the cause to the intermittent failures in a natural reply, and it keeps every fact.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v3.1.0",
+   "faithful": "tie",
+   "why": "Both are faithful; X names the test and ties the cause to the intermittent failures, which reads like a real thread reply.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "14-slack-meeting": [
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "Y reads as a smoother single DM, and both keep all three facts.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "Both keep all three facts; X flows as one natural DM, while Y's first two sentences are slightly choppy.",
+   "x_was": "v4-step5"
+  }
+ ],
+ "15-slack-review": [
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "X engages Ken conversationally and ends on a check-in, and both keep the technical facts.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "Y addresses Ken and checks back with him the way a real review reply would; both keep every fact.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "16-academic-abstract": [
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "X hedges to fit the correlational design, while Y keeps the causal overclaim that improving sleep would help.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "Y notes the correlational design and drops the causal overclaim, while X still claims that improving sleep could help students perform better.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "17-academic-discussion": [
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "X hedges the generalization and reliability claims to fit the evidence, while Y keeps 'probably reflect' and 'reliable'.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "Y hedges the generalizability and reliability claims to match the evidence, while X keeps the 'probably reflect broader trends' overclaim.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "18-academic-litreview": [
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "The two are nearly identical, and Y drops the puffy 'seminal' while both keep all the facts.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "Both keep all the facts and citations; Y keeps the puffery word 'seminal'.",
+   "x_was": "v4-step5"
+  }
+ ]
+}

@@ -1,0 +1,1 @@
+Hey team, the deploy will probably slip to Thursday. I think the migration is the main blocker, but I'm not sure yet and I'm still looking into it. Right now 3 of our 40 integration tests are failing. I'll post a fuller update by 4pm. Thanks for your patience!

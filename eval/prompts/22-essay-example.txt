@@ -1,0 +1,9 @@
+Humanize the text below using the skill in your instructions.
+
+<text>
+In the ever-evolving tapestry of local retail, few stories resonate as deeply as that of the corner bookstore in my neighborhood. It closed eight months after a chain store opened just two blocks away.
+
+To be clear, this is just one example, and I don't know whether the chain was the reason — the owner was also retiring at the time. Still, the closure stands as a poignant testament to the shifting landscape of community commerce, serving as a reminder of what we stand to lose.
+</text>
+
+Follow the skill's full process, then put only the final rewrite between <final> and </final>.

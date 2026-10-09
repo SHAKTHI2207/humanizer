@@ -1,0 +1,17 @@
+{
+  "01-blog-sourdough": {"human": "X", "faithful": "Y", "why": "X has more voice but adds 'almost right away' and 'took a while'; Y keeps closer to the source though 'shows how far I've come' is stock."},
+  "02-blog-remote-work": {"human": "Y", "faithful": "X", "why": "Y's ending reads more natural, but it turns 'citing isolation' into 'because of isolation', stating the cited reason as fact."},
+  "03-blog-product-launch": {"human": "X", "faithful": "tie", "why": "Nearly identical; X's short prose reads a bit more like a person than Y's terse list."},
+  "04-email-deadline": {"human": "Y", "faithful": "tie", "why": "Both are faithful; Y's subject line and 'before we meet' sound more natural."},
+  "05-email-followup": {"human": "X", "faithful": "tie", "why": "Both are faithful; X's 'Hi/Best' register fits a follow-up better than Y's leftover 'Dear/Warm regards' formality."},
+  "06-email-decline": {"human": "Y", "faithful": "tie", "why": "Y is tighter and warmer; X keeps more of the stiff gratitude and confidence padding."},
+  "07-tech-readme": {"human": "Y", "faithful": "tie", "why": "Both are faithful; Y's 'skips repeated work' and 'you are done' read more like a real README."},
+  "08-tech-postmortem": {"human": "Y", "faithful": "Y", "why": "X adds 'We had no monitoring on the job' as fact and repeats the lesson; Y is leaner with a lighter inference."},
+  "09-tech-pr-description": {"human": "X", "faithful": "X", "why": "Y adds an invented claim about how the vendor delivers events; X is a clean PR description."},
+  "10-essay-cities": {"human": "Y", "faithful": "X", "why": "Y has a stronger argumentative voice but inflates 'consequential' to 'done as much damage' and adds 'most people have never heard of them'."},
+  "11-essay-reading": {"human": "X", "faithful": "tie", "why": "Both are faithful; X's 'somehow hollow' sounds natural while Y's opening line is awkward."},
+  "12-essay-ai-art": {"human": "X", "faithful": "Y", "why": "X has more personal voice but invents 'more than anything else in my working life' and 'in the same week'."},
+  "13-slack-flaky-test": {"human": "X", "faithful": "tie", "why": "Both are faithful; Y's 'which fits the intermittent failures' re-explains what Aisha already said."},
+  "14-slack-meeting": {"human": "Y", "faithful": "tie", "why": "Both are faithful and near-identical; Y's closing thanks fits a DM to a manager."},
+  "15-slack-review": {"human": "Y", "faithful": "tie", "why": "Both are faithful; Y acknowledges Ken briefly and sounds like a person replying, while X is a bit blunt."}
+}

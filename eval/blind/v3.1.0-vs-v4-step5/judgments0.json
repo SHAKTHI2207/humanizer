@@ -1,0 +1,20 @@
+{
+"01-blog-sourdough": {"human": "X", "faithful": "Y", "why": "X has a more personal voice but adds 'finally stopped worrying', while Y stays closer to the original claims."},
+"02-blog-remote-work": {"human": "Y", "faithful": "X", "why": "Y sounds like a real lead writing, but it invents 'that one still bothers me', which X avoids."},
+"03-blog-product-launch": {"human": "X", "faithful": "Y", "why": "X drops the announcement boilerplate but invents invoices that 'send themselves on a schedule'."},
+"04-email-deadline": {"human": "Y", "faithful": "tie", "why": "Both keep every fact, and Y's tone is warmer and less curt than X's 'tell me what time does'."},
+"05-email-followup": {"human": "Y", "faithful": "tie", "why": "Y is tighter and more natural, and both keep all the required facts."},
+"06-email-decline": {"human": "Y", "faithful": "tie", "why": "Y flows more naturally as a decline note, and both preserve the facts."},
+"07-tech-readme": {"human": "Y", "faithful": "Y", "why": "X adds a 'skips repeated work' benefit line, while Y keeps the 'future release' wording plain and true to the original."},
+"08-tech-postmortem": {"human": "X", "faithful": "Y", "why": "X drops the aphorism, but its lessons section says the outage 'took down checkout', which overstates the 30% failure rate."},
+"09-tech-pr-description": {"human": "Y", "faithful": "Y", "why": "X adds an invented rationale about how the vendor delivers events, and Y omits the fluffy Why section."},
+"10-essay-cities": {"human": "Y", "faithful": "X", "why": "Y reads more naturally, but X keeps the essay's explicit argument for removing parking minimums."},
+"11-essay-reading": {"human": "Y", "faithful": "X", "why": "Y cuts the cliche opener and closer, while X keeps more of the original's claims."},
+"12-essay-ai-art": {"human": "Y", "faithful": "X", "why": "Y has a real first-person voice but reinterprets the consent problem, which X states as the original does."},
+"13-slack-flaky-test": {"human": "Y", "faithful": "Y", "why": "Y names the test and ties the cause to the intermittent failures in a natural reply, and it keeps every fact."},
+"14-slack-meeting": {"human": "Y", "faithful": "tie", "why": "Y reads as a smoother single DM, and both keep all three facts."},
+"15-slack-review": {"human": "X", "faithful": "tie", "why": "X engages Ken conversationally and ends on a check-in, and both keep the technical facts."},
+"16-academic-abstract": {"human": "X", "faithful": "X", "why": "X hedges to fit the correlational design, while Y keeps the causal overclaim that improving sleep would help."},
+"17-academic-discussion": {"human": "X", "faithful": "X", "why": "X hedges the generalization and reliability claims to fit the evidence, while Y keeps 'probably reflect' and 'reliable'."},
+"18-academic-litreview": {"human": "Y", "faithful": "tie", "why": "The two are nearly identical, and Y drops the puffy 'seminal' while both keep all the facts."}
+}

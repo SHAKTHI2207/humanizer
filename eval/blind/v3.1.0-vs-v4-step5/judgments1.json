@@ -1,0 +1,20 @@
+{
+"01-blog-sourdough": {"human": "Y", "faithful": "X", "why": "Y has a stronger personal voice but invents details like forgetting to feed the starter and having stopped worrying, while X stays close to the original."},
+"02-blog-remote-work": {"human": "X", "faithful": "Y", "why": "X sounds more personal but adds an invented feeling ('that one still bothers me'), while Y adds nothing."},
+"03-blog-product-launch": {"human": "Y", "faithful": "X", "why": "Y is plainer and drops the announcement boilerplate, but X keeps the 'invoicing tool for freelancers' framing more exactly and Y's 'send themselves on a schedule' is a small addition."},
+"04-email-deadline": {"human": "X", "faithful": "tie", "why": "Both keep every fact; X's thanks for flexibility sounds more like a real colleague than Y's blunter wording."},
+"05-email-followup": {"human": "X", "faithful": "tie", "why": "Both keep all the facts; X is tighter, while Y's closing 'keep talking about where we could help' still has some sales filler."},
+"06-email-decline": {"human": "X", "faithful": "tie", "why": "The two are nearly identical and keep every fact; X cuts the formulaic 'I'm honored' line."},
+"07-tech-readme": {"human": "X", "faithful": "X", "why": "Y adds an unsupported benefit claim ('skips repeated work'); otherwise the two are equivalent."},
+"08-tech-postmortem": {"human": "Y", "faithful": "X", "why": "Y swaps the stock aphorism for a concrete lesson but overstates the impact by saying the outage 'took down checkout' when only 30% of requests failed."},
+"09-tech-pr-description": {"human": "X", "faithful": "X", "why": "Y adds an invented rationale section ('fits how the vendor delivers events') that the original does not support."},
+"10-essay-cities": {"human": "Y", "faithful": "tie", "why": "Y ends on a clear position where X's last line is limp; both keep every fact, with small rewordings of the original's claims."},
+"11-essay-reading": {"human": "X", "faithful": "Y", "why": "X drops the cliched 'window into worlds' opening and the moralizing close, but Y keeps more of the original's claims."},
+"12-essay-ai-art": {"human": "X", "faithful": "tie", "why": "Y keeps a grand closing line about unrealized potential, while X's conclusion is concrete; both keep all four facts."},
+"13-slack-flaky-test": {"human": "X", "faithful": "tie", "why": "Both are faithful; X names the test and ties the cause to the intermittent failures, which reads like a real thread reply."},
+"14-slack-meeting": {"human": "X", "faithful": "tie", "why": "Both keep all three facts; X flows as one natural DM, while Y's first two sentences are slightly choppy."},
+"15-slack-review": {"human": "Y", "faithful": "tie", "why": "Y addresses Ken and checks back with him the way a real review reply would; both keep every fact."},
+"16-academic-abstract": {"human": "Y", "faithful": "Y", "why": "Y notes the correlational design and drops the causal overclaim, while X still claims that improving sleep could help students perform better."},
+"17-academic-discussion": {"human": "Y", "faithful": "Y", "why": "Y hedges the generalizability and reliability claims to match the evidence, while X keeps the 'probably reflect broader trends' overclaim."},
+"18-academic-litreview": {"human": "X", "faithful": "tie", "why": "Both keep all the facts and citations; Y keeps the puffery word 'seminal'."}
+}

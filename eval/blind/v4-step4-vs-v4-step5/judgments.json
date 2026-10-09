@@ -1,0 +1,254 @@
+{
+ "01-blog-sourdough": [
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step4",
+   "why": "X has a real voice but adds claims like the feeding schedule and 'stopped worrying', while Y stays closer to the original yet ends on a stock lessons list.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step4",
+   "why": "Y has a more personal voice but adds details like feeding schedules and losing a starter or two that X does not invent.",
+   "x_was": "v4-step4"
+  }
+ ],
+ "02-blog-remote-work": [
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step4",
+   "why": "Y reads like a person but invents 'that one still bothers me', which X avoids.",
+   "x_was": "v4-step4"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step4",
+   "why": "X reads more personal but adds feelings and sign-off details ('still bothers me', 'who signed off') that Y avoids.",
+   "x_was": "v4-step5"
+  }
+ ],
+ "03-blog-product-launch": [
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "Y names Ledgerly as an invoicing tool and flows naturally, while X adds an unsupported 'cut down the admin' claim.",
+   "x_was": "v4-step4"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "X states plainly that Ledgerly is an invoicing tool for freelancers, while Y keeps a vague 'update to how freelancers manage invoicing' framing.",
+   "x_was": "v4-step5"
+  }
+ ],
+ "04-email-deadline": [
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "Both keep every fact, but Y's subject line and sign-off sound more like a real email.",
+   "x_was": "v4-step4"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "X reads like a natural note with a plain subject, while Y keeps the formal subject and sign-off; both keep every fact.",
+   "x_was": "v4-step5"
+  }
+ ],
+ "05-email-followup": [
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step4",
+   "why": "X is warmer and more natural, but Y keeps all three benefits from the original, including decision-making.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "Y softens the promised benefits to 'whether it improves', while X still asserts what the platform does for visibility and decision-making.",
+   "x_was": "v4-step4"
+  }
+ ],
+ "06-email-decline": [
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "Y keeps the original's triplet of praise for Wen Li, while X reads more plainly, and both keep every fact.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "X keeps the stock praise ('deep knowledge, a fresh perspective'), while Y describes Wen plainly; both keep every fact.",
+   "x_was": "v4-step4"
+  }
+ ],
+ "07-tech-readme": [
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "Y keeps a bit of marketing ('runs faster with little effort'), while X is plainer, and both keep all the facts.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "X keeps the marketing tail 'runs faster with little effort', while Y drops it; the facts match.",
+   "x_was": "v4-step4"
+  }
+ ],
+ "08-tech-postmortem": [
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step4",
+   "why": "Y keeps the aphorism as its lesson, but X overstates the impact with 'took down checkout' when only 30% of requests failed.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step4",
+   "why": "Y's specific lesson reads more human, but it says the outage 'took down checkout' when only 30% of requests failed.",
+   "x_was": "v4-step4"
+  }
+ ],
+ "09-tech-pr-description": [
+  {
+   "human": "tie",
+   "faithful": "tie",
+   "why": "The two are nearly identical and both keep every fact.",
+   "x_was": "v4-step4"
+  },
+  {
+   "human": "tie",
+   "faithful": "tie",
+   "why": "The two are nearly the same, with the same facts and plain PR style.",
+   "x_was": "v4-step5"
+  }
+ ],
+ "10-essay-cities": [
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "Y keeps the 'equitable future' residue and adds a new 'drop the mandate' stance.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "X keeps the 'more equitable future' cliche and invents a conclusion that cities should decide for themselves, while Y stays close to the original's call for change.",
+   "x_was": "v4-step4"
+  }
+ ],
+ "11-essay-reading": [
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "Y keeps the generic window-and-mirror opening and the stock aphorism, while X is more personal, and both keep every fact.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "X keeps the window-mirror-bridge opener, while Y starts with the concrete story; both keep the four facts.",
+   "x_was": "v4-step4"
+  }
+ ],
+ "12-essay-ai-art": [
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step4",
+   "why": "Y has a stronger personal voice but invents feelings like 'haven't settled how I feel' and 'hurt more than I expected'.",
+   "x_was": "v4-step4"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step4",
+   "why": "X has a stronger personal voice but adds claims ('biggest change in a long time', 'haven't settled how I feel') that Y does not.",
+   "x_was": "v4-step5"
+  }
+ ],
+ "13-slack-flaky-test": [
+  {
+   "human": "v4-step4",
+   "faithful": "tie",
+   "why": "Y names Aisha and the cause up front, which reads more like a thread reply, and both keep every fact.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "tie",
+   "faithful": "tie",
+   "why": "Both are equally terse, natural thread replies with the same facts.",
+   "x_was": "v4-step4"
+  }
+ ],
+ "14-slack-meeting": [
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "X is a single casual Slack message, while Y is choppier and more formal, and both keep every fact.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "Y reads as one natural DM, while X is a little stiff; the facts are the same.",
+   "x_was": "v4-step4"
+  }
+ ],
+ "15-slack-review": [
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "X's two short paragraphs ending in a question read more naturally than Y's single block, and both keep every fact.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "tie",
+   "why": "Y's two-part reply ending in a question reads more like a real review comment; both keep every fact.",
+   "x_was": "v4-step4"
+  }
+ ],
+ "16-academic-abstract": [
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "Y hedges to fit the correlational design, while X still claims that improving sleep could help performance.",
+   "x_was": "v4-step4"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "X hedges correctly for a correlational design, while Y keeps the causal suggestion that improving sleep could help students perform better.",
+   "x_was": "v4-step5"
+  }
+ ],
+ "17-academic-discussion": [
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "X hedges reliability and interventions more carefully, while Y says the responses 'suggest they are reliable'.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v4-step5",
+   "faithful": "v4-step5",
+   "why": "Y hedges reliability ('some support') and interventions ('may be needed'), while X keeps the overclaim that consistency shows reliability.",
+   "x_was": "v4-step4"
+  }
+ ],
+ "18-academic-litreview": [
+  {
+   "human": "v4-step4",
+   "faithful": "v4-step4",
+   "why": "Y softens 'numerous studies' and says outright that the evidence is mixed, which is a required fact.",
+   "x_was": "v4-step5"
+  },
+  {
+   "human": "v4-step4",
+   "faithful": "v4-step4",
+   "why": "X softens 'numerous studies' and states that the evidence is mixed, a required fact that Y only implies.",
+   "x_was": "v4-step4"
+  }
+ ]
+}

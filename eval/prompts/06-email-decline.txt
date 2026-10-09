@@ -1,0 +1,20 @@
+Humanize the text below using the skill in your instructions.
+
+<text>
+Subject: Re: Speaking Invitation
+
+Hi Jordan,
+
+Thank you so much for thinking of me for the October conference! I'm truly honored by the invitation, and it means a great deal that you'd consider me for this opportunity.
+
+Unfortunately, after careful consideration, I won't be able to participate this year. We have a major product launch scheduled for the same week, and I need to remain fully focused on ensuring its success.
+
+That said, I'd love to recommend my colleague Wen Li. Wen led our migration project and brings a wealth of knowledge, a unique perspective, and an engaging presentation style that I'm confident would resonate with your audience.
+
+I would absolutely welcome the chance to be considered for next year's event. Wishing you and the team all the best as you put together what I'm sure will be an incredible lineup!
+
+Warmly,
+Sam
+</text>
+
+Follow the skill's full process, then put only the final rewrite between <final> and </final>.

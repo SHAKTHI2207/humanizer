@@ -1,0 +1,17 @@
+{
+  "01-blog-sourdough": {"human": "Y", "faithful": "X", "why": "Y has more voice but invents ongoing bad loaves and implies several dead starters; X keeps only the original facts."},
+  "02-blog-remote-work": {"human": "X", "faithful": "tie", "why": "Both keep all facts; X's closing line is cleaner than Y's generic 'the changes above have paid off'."},
+  "03-blog-product-launch": {"human": "X", "faithful": "tie", "why": "Same facts; Y breaks the features into choppy fragment paragraphs."},
+  "04-email-deadline": {"human": "X", "faithful": "tie", "why": "Nearly identical; X's subject line reads like a real email rather than a formal request."},
+  "05-email-followup": {"human": "Y", "faithful": "X", "why": "Y drops the leftover visibility/operations/decision-making triad but adds 'before deciding on anything larger'; X stays closer to the source."},
+  "06-email-decline": {"human": "Y", "faithful": "tie", "why": "Both faithful; Y's 'instead' and 'Good luck putting the lineup together' sound more natural."},
+  "07-tech-readme": {"human": "X", "faithful": "tie", "why": "Near-identical; Y's 'You add a decorator.' bullet is choppy and repeats the intro."},
+  "08-tech-postmortem": {"human": "X", "faithful": "tie", "why": "Both faithful; X replaces the slogan lesson with a concrete one, while Y keeps the aphorism."},
+  "09-tech-pr-description": {"human": "Y", "faithful": "Y", "why": "X's Why section adds an unsupported claim about how the vendor delivers events; Y drops the filler section cleanly."},
+  "10-essay-cities": {"human": "X", "faithful": "Y", "why": "X has more voice but adds 'rarely make headlines' and a leave-it-to-builders position not in the original; Y states the removal argument directly."},
+  "11-essay-reading": {"human": "X", "faithful": "tie", "why": "Both faithful; Y keeps 'more than a hobby' and 'carefully organized', which are closer to the AI phrasing."},
+  "12-essay-ai-art": {"human": "X", "faithful": "tie", "why": "Y keeps inflated framing ('biggest shifts in years', 'potential stays largely unrealized'); X is plainer with no new facts."},
+  "13-slack-flaky-test": {"human": "X", "faithful": "tie", "why": "Y's 'which fits the intermittent failures' restates what Aisha already said; X is a tighter reply."},
+  "14-slack-meeting": {"human": "X", "faithful": "tie", "why": "Y keeps the leftover 'let me know if you want anything else prepared' pleasantry."},
+  "15-slack-review": {"human": "X", "faithful": "tie", "why": "Both faithful; X's brief 'Good point, Ken... though' reads like a natural reviewer reply."}
+}

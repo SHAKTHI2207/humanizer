@@ -1,0 +1,20 @@
+{
+"01-blog-sourdough": {"human": "X", "faithful": "Y", "why": "X has a real voice but adds claims like the feeding schedule and 'stopped worrying', while Y stays closer to the original yet ends on a stock lessons list."},
+"02-blog-remote-work": {"human": "Y", "faithful": "X", "why": "Y reads like a person but invents 'that one still bothers me', which X avoids."},
+"03-blog-product-launch": {"human": "Y", "faithful": "Y", "why": "Y names Ledgerly as an invoicing tool and flows naturally, while X adds an unsupported 'cut down the admin' claim."},
+"04-email-deadline": {"human": "Y", "faithful": "tie", "why": "Both keep every fact, but Y's subject line and sign-off sound more like a real email."},
+"05-email-followup": {"human": "X", "faithful": "Y", "why": "X is warmer and more natural, but Y keeps all three benefits from the original, including decision-making."},
+"06-email-decline": {"human": "X", "faithful": "tie", "why": "Y keeps the original's triplet of praise for Wen Li, while X reads more plainly, and both keep every fact."},
+"07-tech-readme": {"human": "X", "faithful": "tie", "why": "Y keeps a bit of marketing ('runs faster with little effort'), while X is plainer, and both keep all the facts."},
+"08-tech-postmortem": {"human": "X", "faithful": "Y", "why": "Y keeps the aphorism as its lesson, but X overstates the impact with 'took down checkout' when only 30% of requests failed."},
+"09-tech-pr-description": {"human": "tie", "faithful": "tie", "why": "The two are nearly identical and both keep every fact."},
+"10-essay-cities": {"human": "X", "faithful": "X", "why": "Y keeps the 'equitable future' residue and adds a new 'drop the mandate' stance."},
+"11-essay-reading": {"human": "X", "faithful": "tie", "why": "Y keeps the generic window-and-mirror opening and the stock aphorism, while X is more personal, and both keep every fact."},
+"12-essay-ai-art": {"human": "Y", "faithful": "X", "why": "Y has a stronger personal voice but invents feelings like 'haven't settled how I feel' and 'hurt more than I expected'."},
+"13-slack-flaky-test": {"human": "Y", "faithful": "tie", "why": "Y names Aisha and the cause up front, which reads more like a thread reply, and both keep every fact."},
+"14-slack-meeting": {"human": "X", "faithful": "tie", "why": "X is a single casual Slack message, while Y is choppier and more formal, and both keep every fact."},
+"15-slack-review": {"human": "X", "faithful": "tie", "why": "X's two short paragraphs ending in a question read more naturally than Y's single block, and both keep every fact."},
+"16-academic-abstract": {"human": "Y", "faithful": "Y", "why": "Y hedges to fit the correlational design, while X still claims that improving sleep could help performance."},
+"17-academic-discussion": {"human": "X", "faithful": "X", "why": "X hedges reliability and interventions more carefully, while Y says the responses 'suggest they are reliable'."},
+"18-academic-litreview": {"human": "Y", "faithful": "Y", "why": "Y softens 'numerous studies' and says outright that the evidence is mixed, which is a required fact."}
+}

@@ -1,0 +1,7 @@
+Humanize the text below using the skill in your instructions.
+
+<text>
+Hey team! 👋 Quick update on the deploy: it's looking like it might slip to Thursday. I think the migration is the main blocker here, but I'm not 100% sure yet — still digging in. Currently, about 3 of our 40 integration tests are failing. I'll circle back with a comprehensive update by 4pm. Thanks so much for your patience and understanding! 🙏
+</text>
+
+Follow the skill's full process, then put only the final rewrite between <final> and </final>.

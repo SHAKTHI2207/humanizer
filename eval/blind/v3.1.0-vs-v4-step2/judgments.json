@@ -1,0 +1,17 @@
+{
+  "01-blog-sourdough": {"human": "Y", "faithful": "tie", "why": "Both keep every fact; Y keeps the patience theme and its own closing paragraph, while X ends in a rushed list of advice."},
+  "02-blog-remote-work": {"human": "X", "faithful": "tie", "why": "Both faithful; Y ends on filler ('the changes above have paid off')."},
+  "03-blog-product-launch": {"human": "X", "faithful": "Y", "why": "X claims recurring invoices 'send themselves on a schedule', more specific than the original; Y stays closer."},
+  "04-email-deadline": {"human": "X", "faithful": "tie", "why": "Y repeats 'Monday at 2pm' twice in a short email; X's closing reads more natural."},
+  "05-email-followup": {"human": "X", "faithful": "tie", "why": "Both faithful; Y keeps the stiffer 'As discussed' and 'in the meantime'."},
+  "06-email-decline": {"human": "X", "faithful": "tie", "why": "X is tighter; Y keeps the formulaic 'Unfortunately' and 'I'm confident'."},
+  "07-tech-readme": {"human": "X", "faithful": "tie", "why": "Both faithful; Y's 'Add a decorator and you are done. You do not need' reads stiff."},
+  "08-tech-postmortem": {"human": "Y", "faithful": "X", "why": "Y adds the unstated claim 'We had no alerting on certificate expiry'; X keeps the slogan as its closing line."},
+  "09-tech-pr-description": {"human": "X", "faithful": "X", "why": "Y's 'Why' section adds an unsupported claim about how the vendor delivers events and keeps the 'no longer sufficient' tell."},
+  "10-essay-cities": {"human": "Y", "faithful": "Y", "why": "X invents an answer to who should decide (people building and using the places) and keeps the 'depends on it' close."},
+  "11-essay-reading": {"human": "Y", "faithful": "X", "why": "Y drops the grandiose frame but adds 'after a while' and 'read at whatever pace the book wants'; X keeps the lofty opener."},
+  "12-essay-ai-art": {"human": "X", "faithful": "Y", "why": "X invents career history ('faster than anything else I've seen in my career') and an unresolved inner conflict; Y keeps AI-ish lines about potential."},
+  "13-slack-flaky-test": {"human": "X", "faithful": "tie", "why": "Nearly identical; X ties the cause back to the intermittent failures Aisha reported."},
+  "14-slack-meeting": {"human": "Y", "faithful": "tie", "why": "Nearly identical; Y is slightly more casual, the way a DM reads."},
+  "15-slack-review": {"human": "X", "faithful": "tie", "why": "X concedes Ken's point directly and says exactly what the comment will explain; Y keeps 'transient failures'."}
+}

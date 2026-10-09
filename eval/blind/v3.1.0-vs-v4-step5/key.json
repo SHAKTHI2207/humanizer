@@ -1,0 +1,182 @@
+{
+ "01-blog-sourdough": [
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  }
+ ],
+ "02-blog-remote-work": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  },
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  }
+ ],
+ "03-blog-product-launch": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  },
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  }
+ ],
+ "04-email-deadline": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  },
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  }
+ ],
+ "05-email-followup": [
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  }
+ ],
+ "06-email-decline": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  },
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  }
+ ],
+ "07-tech-readme": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  },
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  }
+ ],
+ "08-tech-postmortem": [
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  }
+ ],
+ "09-tech-pr-description": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  },
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  }
+ ],
+ "10-essay-cities": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  },
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  }
+ ],
+ "11-essay-reading": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  },
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  }
+ ],
+ "12-essay-ai-art": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  },
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  }
+ ],
+ "13-slack-flaky-test": [
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  }
+ ],
+ "14-slack-meeting": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  },
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  }
+ ],
+ "15-slack-review": [
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  }
+ ],
+ "16-academic-abstract": [
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  }
+ ],
+ "17-academic-discussion": [
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  }
+ ],
+ "18-academic-litreview": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-step5"
+  },
+  {
+   "X": "v4-step5",
+   "Y": "v3.1.0"
+  }
+ ]
+}

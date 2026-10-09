@@ -1,0 +1,15 @@
+Humanize the text below using the skill in your instructions.
+
+<text>
+The rise of AI-generated art represents one of the most profound shifts in the creative landscape of our time. As a working illustrator, I find myself navigating a complex and multifaceted reality — one filled with both promise and peril.
+
+In 2024, I lost two clients to image generators. This experience was not merely a professional setback; it was a deeply personal reckoning with the evolving value of human creativity.
+
+Yet the story is more nuanced than it might first appear. I still use AI tools for reference gathering, leveraging their capabilities to enhance my workflow. This duality — resisting and embracing at the same time — encapsulates the intricate interplay between artist and machine.
+
+At the heart of the matter lies a fundamental question of consent. The training-data consent problem remains unresolved, casting a long shadow over the industry's future.
+
+Moving forward, artists, technologists, and policymakers must work together to forge a path that honors creativity, fosters innovation, and ensures fairness. Only then can we unlock the full potential of this transformative technology.
+</text>
+
+Follow the skill's full process, then put only the final rewrite between <final> and </final>.

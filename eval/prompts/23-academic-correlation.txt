@@ -1,0 +1,7 @@
+Humanize the text below using the skill in your instructions.
+
+<text>
+The relationship between physical activity and academic achievement has garnered significant attention in recent years. In the present study, the utilization of the campus gym was found to be associated with higher self-reported GPAs among students (r = 0.18, n = 212), highlighting the potential role of exercise in academic success. However, it is important to note that this correlation may reflect underlying differences in time management rather than the effects of exercise itself. Furthermore, the existing body of evidence regarding this relationship remains mixed, underscoring the need for further investigation.
+</text>
+
+Follow the skill's full process, then put only the final rewrite between <final> and </final>.

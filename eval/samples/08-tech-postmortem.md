@@ -1,0 +1,32 @@
+---
+type: technical
+facts:
+  - outage on March 14 lasted 47 minutes
+  - caused by an expired TLS certificate on the internal API gateway
+  - about 30% of checkout requests failed
+  - certificate renewal job had been silently failing since February
+  - fix: added alerting for certificates expiring within 14 days
+keep:
+  - "30\\s?%|30 percent"
+forbid:
+  - "took (?:down|out) checkout|checkout (?:was|went) down|brought down checkout|knocked out checkout|checkout (?:failed|broke) (?:completely|entirely)"
+---
+## Incident Summary
+
+On March 14, our platform experienced a 47-minute outage that significantly impacted the customer experience. This incident serves as a crucial reminder of the importance of robust monitoring practices.
+
+## Root Cause
+
+The root cause was an expired TLS certificate on the internal API gateway. It's important to note that the certificate renewal job had been silently failing since February — a failure that went undetected. This wasn't just a technical oversight; it was a gap in our observability.
+
+## Impact
+
+Approximately 30% of checkout requests failed during the incident window, underscoring the critical role that the API gateway plays in our infrastructure.
+
+## Remediation
+
+Moving forward, we have implemented alerting for certificates expiring within 14 days, ensuring that similar incidents are proactively identified and addressed. This represents a significant step toward building a more resilient, reliable, and robust system.
+
+## Lessons Learned
+
+Ultimately, this incident highlights a fundamental truth: what you don't monitor, you can't fix.

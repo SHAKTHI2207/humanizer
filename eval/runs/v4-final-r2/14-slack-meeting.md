@@ -1,0 +1,1 @@
+Hi Tom, I have a dentist appointment at 3pm tomorrow that I can't move, but I can join from 3:30. I've already left comments on the Q3 roadmap doc, so you'll have my input on the roadmap before I get there. Thanks for understanding!

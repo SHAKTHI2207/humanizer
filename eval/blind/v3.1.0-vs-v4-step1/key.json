@@ -1,0 +1,62 @@
+{
+  "01-blog-sourdough": {
+    "X": "v3.1.0",
+    "Y": "v4-step1"
+  },
+  "02-blog-remote-work": {
+    "X": "v4-step1",
+    "Y": "v3.1.0"
+  },
+  "03-blog-product-launch": {
+    "X": "v3.1.0",
+    "Y": "v4-step1"
+  },
+  "04-email-deadline": {
+    "X": "v3.1.0",
+    "Y": "v4-step1"
+  },
+  "05-email-followup": {
+    "X": "v3.1.0",
+    "Y": "v4-step1"
+  },
+  "06-email-decline": {
+    "X": "v4-step1",
+    "Y": "v3.1.0"
+  },
+  "07-tech-readme": {
+    "X": "v3.1.0",
+    "Y": "v4-step1"
+  },
+  "08-tech-postmortem": {
+    "X": "v4-step1",
+    "Y": "v3.1.0"
+  },
+  "09-tech-pr-description": {
+    "X": "v3.1.0",
+    "Y": "v4-step1"
+  },
+  "10-essay-cities": {
+    "X": "v4-step1",
+    "Y": "v3.1.0"
+  },
+  "11-essay-reading": {
+    "X": "v3.1.0",
+    "Y": "v4-step1"
+  },
+  "12-essay-ai-art": {
+    "X": "v4-step1",
+    "Y": "v3.1.0"
+  },
+  "13-slack-flaky-test": {
+    "X": "v4-step1",
+    "Y": "v3.1.0"
+  },
+  "14-slack-meeting": {
+    "X": "v3.1.0",
+    "Y": "v4-step1"
+  },
+  "15-slack-review": {
+    "X": "v4-step1",
+    "Y": "v3.1.0"
+  }
+}

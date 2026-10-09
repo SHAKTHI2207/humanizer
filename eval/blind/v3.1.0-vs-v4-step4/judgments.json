@@ -1,0 +1,17 @@
+{
+  "01-blog-sourdough": {"human": "Y", "faithful": "Y", "why": "X adds 'regular feeding' and 'stayed active', which the original doesn't say; Y's voice is a bit warmer."},
+  "02-blog-remote-work": {"human": "Y", "faithful": "tie", "why": "Both keep all facts; Y is tighter and drops X's generic 'how vs where' closer."},
+  "03-blog-product-launch": {"human": "Y", "faithful": "X", "why": "Y reads like a real launch note but says recurring invoices 'send themselves on a schedule', a mechanism the original never states."},
+  "04-email-deadline": {"human": "X", "faithful": "tie", "why": "Both are faithful; X is crisper, while Y keeps the formal subject and sign-off."},
+  "05-email-followup": {"human": "X", "faithful": "tie", "why": "Both are faithful; Y keeps the stock 'look forward to continuing the conversation' close."},
+  "06-email-decline": {"human": "X", "faithful": "tie", "why": "Y keeps the triplet 'deep knowledge, a fresh perspective, and an engaging presentation style'; X trims it."},
+  "07-tech-readme": {"human": "X", "faithful": "tie", "why": "Nearly identical; Y keeps the 'faster with little effort' pitch."},
+  "08-tech-postmortem": {"human": "X", "faithful": "X", "why": "Y states as fact that better monitoring would have caught the cause earlier, a counterfactual the original doesn't claim."},
+  "09-tech-pr-description": {"human": "X", "faithful": "X", "why": "Y invents a reason ('fits how the vendor delivers events') and keeps a vague Why section."},
+  "10-essay-cities": {"human": "Y", "faithful": "Y", "why": "X keeps 'bold step toward a more equitable future' and ends with 'cities should decide for themselves', a position the original never takes."},
+  "11-essay-reading": {"human": "X", "faithful": "tie", "why": "Both are faithful; Y keeps 'more than a hobby' and the 'Does that mean...? Not at all.' move."},
+  "12-essay-ai-art": {"human": "Y", "faithful": "Y", "why": "X adds 'speed up my workflow' and an 'unrealized potential' closer; Y stays closer and plainer."},
+  "13-slack-flaky-test": {"human": "Y", "faithful": "tie", "why": "Both are faithful and short; Y addresses Aisha directly like a thread reply."},
+  "14-slack-meeting": {"human": "Y", "faithful": "tie", "why": "Y is a tighter DM; X keeps the 'let me know if you want anything else' filler."},
+  "15-slack-review": {"human": "Y", "faithful": "tie", "why": "Both are faithful; Y skips the 'Fair question' and 'let me know' padding."}
+}

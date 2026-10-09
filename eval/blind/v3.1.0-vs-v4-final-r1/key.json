@@ -1,0 +1,232 @@
+{
+ "01-blog-sourdough": [
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  }
+ ],
+ "02-blog-remote-work": [
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  }
+ ],
+ "03-blog-product-launch": [
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  }
+ ],
+ "04-email-deadline": [
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  }
+ ],
+ "05-email-followup": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  },
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  }
+ ],
+ "06-email-decline": [
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  }
+ ],
+ "07-tech-readme": [
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  }
+ ],
+ "08-tech-postmortem": [
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  }
+ ],
+ "09-tech-pr-description": [
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  }
+ ],
+ "10-essay-cities": [
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  }
+ ],
+ "11-essay-reading": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  },
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  }
+ ],
+ "12-essay-ai-art": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  },
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  }
+ ],
+ "13-slack-flaky-test": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  },
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  }
+ ],
+ "14-slack-meeting": [
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  }
+ ],
+ "15-slack-review": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  },
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  }
+ ],
+ "16-academic-abstract": [
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  }
+ ],
+ "17-academic-discussion": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  },
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  }
+ ],
+ "18-academic-litreview": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  },
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  }
+ ],
+ "19-report-quarterly": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  },
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  }
+ ],
+ "20-reflective-neutral": [
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  },
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  }
+ ],
+ "21-slack-uncertain": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  },
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  }
+ ],
+ "22-essay-example": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  },
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  }
+ ],
+ "23-academic-correlation": [
+  {
+   "X": "v3.1.0",
+   "Y": "v4-final"
+  },
+  {
+   "X": "v4-final",
+   "Y": "v3.1.0"
+  }
+ ]
+}

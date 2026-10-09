@@ -1,0 +1,18 @@
+Humanize the text below using the skill in your instructions.
+
+It is a reply in this conversation:
+<context>
+PR review thread. Reviewer Ken: "Why not just bump the timeout to 60s instead of adding a retry? Seems simpler."
+</context>
+
+<text>
+That's a great point, Ken, and I really appreciate you raising it! Simplicity is definitely something we should always strive for.
+
+However, it's important to note that the issue isn't just about slow responses — it's about dropped connections. The upstream service sometimes drops connections entirely, which means a longer timeout wouldn't actually help in those cases. The request would simply hang until it hit the 60s limit and then fail anyway.
+
+The retry approach, on the other hand, uses 3 attempts with exponential backoff, ensuring that transient failures are handled gracefully and robustly.
+
+That said, I completely understand the concern about added complexity. I'm more than happy to add a comment in the code explaining the reasoning, so future readers have the full context.
+
+Let me know if that works for you!
+</text>

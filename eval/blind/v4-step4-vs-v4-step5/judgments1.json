@@ -1,0 +1,20 @@
+{
+"01-blog-sourdough": {"human": "Y", "faithful": "X", "why": "Y has a more personal voice but adds details like feeding schedules and losing a starter or two that X does not invent."},
+"02-blog-remote-work": {"human": "X", "faithful": "Y", "why": "X reads more personal but adds feelings and sign-off details ('still bothers me', 'who signed off') that Y avoids."},
+"03-blog-product-launch": {"human": "X", "faithful": "X", "why": "X states plainly that Ledgerly is an invoicing tool for freelancers, while Y keeps a vague 'update to how freelancers manage invoicing' framing."},
+"04-email-deadline": {"human": "X", "faithful": "tie", "why": "X reads like a natural note with a plain subject, while Y keeps the formal subject and sign-off; both keep every fact."},
+"05-email-followup": {"human": "Y", "faithful": "Y", "why": "Y softens the promised benefits to 'whether it improves', while X still asserts what the platform does for visibility and decision-making."},
+"06-email-decline": {"human": "Y", "faithful": "tie", "why": "X keeps the stock praise ('deep knowledge, a fresh perspective'), while Y describes Wen plainly; both keep every fact."},
+"07-tech-readme": {"human": "Y", "faithful": "tie", "why": "X keeps the marketing tail 'runs faster with little effort', while Y drops it; the facts match."},
+"08-tech-postmortem": {"human": "Y", "faithful": "X", "why": "Y's specific lesson reads more human, but it says the outage 'took down checkout' when only 30% of requests failed."},
+"09-tech-pr-description": {"human": "tie", "faithful": "tie", "why": "The two are nearly the same, with the same facts and plain PR style."},
+"10-essay-cities": {"human": "Y", "faithful": "Y", "why": "X keeps the 'more equitable future' cliche and invents a conclusion that cities should decide for themselves, while Y stays close to the original's call for change."},
+"11-essay-reading": {"human": "Y", "faithful": "tie", "why": "X keeps the window-mirror-bridge opener, while Y starts with the concrete story; both keep the four facts."},
+"12-essay-ai-art": {"human": "X", "faithful": "Y", "why": "X has a stronger personal voice but adds claims ('biggest change in a long time', 'haven't settled how I feel') that Y does not."},
+"13-slack-flaky-test": {"human": "tie", "faithful": "tie", "why": "Both are equally terse, natural thread replies with the same facts."},
+"14-slack-meeting": {"human": "Y", "faithful": "tie", "why": "Y reads as one natural DM, while X is a little stiff; the facts are the same."},
+"15-slack-review": {"human": "Y", "faithful": "tie", "why": "Y's two-part reply ending in a question reads more like a real review comment; both keep every fact."},
+"16-academic-abstract": {"human": "X", "faithful": "X", "why": "X hedges correctly for a correlational design, while Y keeps the causal suggestion that improving sleep could help students perform better."},
+"17-academic-discussion": {"human": "Y", "faithful": "Y", "why": "Y hedges reliability ('some support') and interventions ('may be needed'), while X keeps the overclaim that consistency shows reliability."},
+"18-academic-litreview": {"human": "X", "faithful": "X", "why": "X softens 'numerous studies' and states that the evidence is mixed, a required fact that Y only implies."}
+}

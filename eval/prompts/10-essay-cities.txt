@@ -1,0 +1,15 @@
+Humanize the text below using the skill in your instructions.
+
+<text>
+In the ever-evolving tapestry of urban planning, few policies have proven as quietly consequential as parking minimums. These regulations, often overlooked, play a pivotal role in shaping the very fabric of our cities.
+
+Parking minimums aren't just about cars — they're about housing, affordability, and the kind of communities we choose to build. By requiring developers to include parking, these rules raise the cost of new housing, effectively pricing out the very residents cities claim to serve.
+
+Consider Minneapolis. In 2021, the city eliminated parking minimums citywide, marking a bold step toward a more equitable future. This decision stands as a testament to what's possible when cities prioritize people over pavement.
+
+To be clear, I'm not saying parking doesn't matter. Some neighborhoods do face genuine shortages. But the question isn't whether we need parking. The real question is: who should decide how much?
+
+Ultimately, the answer is clear. Cities must embrace change. The future of urban living depends on it.
+</text>
+
+Follow the skill's full process, then put only the final rewrite between <final> and </final>.

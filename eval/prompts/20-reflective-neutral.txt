@@ -1,0 +1,11 @@
+Humanize the text below using the skill in your instructions.
+
+<text>
+Reflecting on this transformative group project has been a profound learning journey. Over six weeks, our five-person team navigated the intricate landscape of collaborative research, with my role centering on the literature review.
+
+Notably, we missed the first draft deadline by two days, a pivotal moment that underscored the importance of effective communication. After week two, we transitioned from email to a shared document, fostering seamless collaboration and enhanced alignment.
+
+Ultimately, our final report received a B+. This experience stands as a testament to the power of teamwork, adaptability, and continuous growth.
+</text>
+
+Follow the skill's full process, then put only the final rewrite between <final> and </final>.

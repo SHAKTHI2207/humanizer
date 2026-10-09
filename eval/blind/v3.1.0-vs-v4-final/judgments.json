@@ -1,0 +1,324 @@
+{
+ "01-blog-sourdough": [
+  {
+   "human": "v4-final",
+   "faithful": "v3.1.0",
+   "why": "X reads more naturally but invents 'almost overnight' timing, while Y keeps the claims plainly.",
+   "x_was": "v4-final"
+  },
+  {
+   "human": "v4-final",
+   "faithful": "v3.1.0",
+   "why": "Y reads more personal but invents 'took it harder than I'd like to admit' and 'almost overnight' and drops the closing lesson, which X keeps.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "02-blog-remote-work": [
+  {
+   "human": "v4-final",
+   "faithful": "v3.1.0",
+   "why": "X drops the original's how-not-where conclusion, which Y keeps.",
+   "x_was": "v4-final"
+  },
+  {
+   "human": "v4-final",
+   "faithful": "v3.1.0",
+   "why": "Y flows more naturally but drops the original's conclusion about how vs where you work, which X keeps.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "03-blog-product-launch": [
+  {
+   "human": "v3.1.0",
+   "faithful": "v4-final",
+   "why": "Y is tighter launch copy but invents that recurring invoices send themselves on a schedule.",
+   "x_was": "v4-final"
+  },
+  {
+   "human": "v3.1.0",
+   "faithful": "v4-final",
+   "why": "X is plainer and drops the 'reimagined' marketing residue, but adds that invoices 'send themselves on a schedule', which Y does not.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "04-email-deadline": [
+  {
+   "human": "v3.1.0",
+   "faithful": "v4-final",
+   "why": "Y is a crisp human email but drops the appreciation and the better-discussion rationale X keeps.",
+   "x_was": "v4-final"
+  },
+  {
+   "human": "v3.1.0",
+   "faithful": "tie",
+   "why": "X is a crisp, natural ask while Y keeps some formulaic politeness; both keep all facts without inventing anything.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "05-email-followup": [
+  {
+   "human": "v3.1.0",
+   "faithful": "v4-final",
+   "why": "X is less stiff, but Y keeps the look-forward close and all claims.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v3.1.0",
+   "faithful": "tie",
+   "why": "Y drops the stiff 'Dear'/'Warm regards' formality while both keep every fact intact.",
+   "x_was": "v4-final"
+  }
+ ],
+ "06-email-decline": [
+  {
+   "human": "v4-final",
+   "faithful": "v3.1.0",
+   "why": "Y keeps the writer's stated confidence in Wen Li, which X weakens to 'I think'.",
+   "x_was": "v4-final"
+  },
+  {
+   "human": "tie",
+   "faithful": "tie",
+   "why": "The two rewrites are nearly identical in tone and content with only word-level differences.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "07-tech-readme": [
+  {
+   "human": "v3.1.0",
+   "faithful": "v4-final",
+   "why": "Y's list reads like a real README but adds an unsupported 'skips repeated work' benefit.",
+   "x_was": "v4-final"
+  },
+  {
+   "human": "v4-final",
+   "faithful": "v4-final",
+   "why": "X adds 'so your application skips repeated work' and drops the future-release mention, while Y stays closer to the original.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "08-tech-postmortem": [
+  {
+   "human": "v4-final",
+   "faithful": "v4-final",
+   "why": "Y adds a counterfactual claim that better monitoring would have caught it earlier and a new benefit claim.",
+   "x_was": "v4-final"
+  },
+  {
+   "human": "v3.1.0",
+   "faithful": "v4-final",
+   "why": "X reads more natural ('nobody noticed') but adds a claim that better monitoring would have caught it earlier; Y sticks to the reported facts.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "09-tech-pr-description": [
+  {
+   "human": "v4-final",
+   "faithful": "v4-final",
+   "why": "Y invents a reason that webhooks fit how the vendor delivers events.",
+   "x_was": "v4-final"
+  },
+  {
+   "human": "v4-final",
+   "faithful": "v4-final",
+   "why": "X invents a reason that webhooks fit how the vendor delivers events; Y avoids that.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "10-essay-cities": [
+  {
+   "human": "v3.1.0",
+   "faithful": "v3.1.0",
+   "why": "X drops the essay's conclusion that cities should change, which Y keeps.",
+   "x_was": "v4-final"
+  },
+  {
+   "human": "v3.1.0",
+   "faithful": "v3.1.0",
+   "why": "Y drops the essay's concluding call for cities to change, while X keeps the argument's conclusion.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "11-essay-reading": [
+  {
+   "human": "v4-final",
+   "faithful": "v3.1.0",
+   "why": "Y cuts the clich\u00e9d frame cleanly but drops the original's opening and concluding claims that X keeps.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v4-final",
+   "faithful": "v3.1.0",
+   "why": "X cuts the flowery frame and reads more human but drops the closing conclusion about stories over numbers, which Y keeps.",
+   "x_was": "v4-final"
+  }
+ ],
+ "12-essay-ai-art": [
+  {
+   "human": "v4-final",
+   "faithful": "v3.1.0",
+   "why": "Y has a more personal voice but adds 'in my lifetime' and reinterprets consent more specifically.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v4-final",
+   "faithful": "v3.1.0",
+   "why": "X has a more personal voice but adds 'in my lifetime' and reinterprets the consent problem, while Y stays closer to the stated facts.",
+   "x_was": "v4-final"
+  }
+ ],
+ "13-slack-flaky-test": [
+  {
+   "human": "v4-final",
+   "faithful": "v4-final",
+   "why": "X adds an inference that the clock explains the intermittent failures.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v4-final",
+   "faithful": "tie",
+   "why": "X is a tighter Slack reply; Y's 'which fits the intermittent failures' is a harmless inference, and both keep all facts.",
+   "x_was": "v4-final"
+  }
+ ],
+ "14-slack-meeting": [
+  {
+   "human": "v3.1.0",
+   "faithful": "v4-final",
+   "why": "Y leads with the answer like a real DM but drops that the comments were written.",
+   "x_was": "v4-final"
+  },
+  {
+   "human": "tie",
+   "faithful": "tie",
+   "why": "Both are natural, short DMs that keep every fact.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "15-slack-review": [
+  {
+   "human": "v3.1.0",
+   "faithful": "v4-final",
+   "why": "X turns 'I understand the concern' into 'I agree it adds complexity', a stronger concession.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v4-final",
+   "faithful": "v4-final",
+   "why": "Y changes 'understand the concern' into agreeing that it adds complexity and turns 'happy to add' into a commitment, while X keeps the original stance.",
+   "x_was": "v4-final"
+  }
+ ],
+ "16-academic-abstract": [
+  {
+   "human": "v4-final",
+   "faithful": "v4-final",
+   "why": "Y keeps the overclaim that improving sleep could help performance, while X hedges for the correlational design.",
+   "x_was": "v4-final"
+  },
+  {
+   "human": "v4-final",
+   "faithful": "v4-final",
+   "why": "X keeps the causal implication that improving sleep could help students perform better, while Y hedges it to match the correlational design.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "17-academic-discussion": [
+  {
+   "human": "v4-final",
+   "faithful": "v4-final",
+   "why": "X keeps the original's overclaims about broader trends and reliability, which Y hedges to match the evidence.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v4-final",
+   "faithful": "v4-final",
+   "why": "Y keeps the overclaims (patterns probably reflect broader trends, responses are reliable, the association supports interventions), while X weakens them to match the evidence.",
+   "x_was": "v4-final"
+  }
+ ],
+ "18-academic-litreview": [
+  {
+   "human": "v4-final",
+   "faithful": "v4-final",
+   "why": "X drops the original's conclusion about the overall evidence, which Y keeps in hedged form.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v4-final",
+   "faithful": "v4-final",
+   "why": "Y drops the concluding statement that the evidence points both ways, while X keeps it in hedged form.",
+   "x_was": "v4-final"
+  }
+ ],
+ "19-report-quarterly": [
+  {
+   "human": "v3.1.0",
+   "faithful": "v4-final",
+   "why": "X turns 'one possible explanation' into 'may be the cause' and adds 'slow our growth'.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v4-final",
+   "faithful": "v4-final",
+   "why": "Y strengthens 'one possible explanation' into 'may be the cause' and says churn would slow growth, while X keeps the original hedging.",
+   "x_was": "v4-final"
+  }
+ ],
+ "20-reflective-neutral": [
+  {
+   "human": "v4-final",
+   "faithful": "tie",
+   "why": "Both keep every fact; X skips Y's generic 'I learned a lot' opener.",
+   "x_was": "v4-final"
+  },
+  {
+   "human": "tie",
+   "faithful": "tie",
+   "why": "The rewrites are nearly identical and both keep all facts.",
+   "x_was": "v3.1.0"
+  }
+ ],
+ "21-slack-uncertain": [
+  {
+   "human": "v3.1.0",
+   "faithful": "v4-final",
+   "why": "Nearly identical; Y's 'fuller update' keeps the original's comprehensive update, and X's 'digging' sounds slightly more natural.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "tie",
+   "faithful": "tie",
+   "why": "The rewrites differ by a word or two and keep the same hedges and facts.",
+   "x_was": "v4-final"
+  }
+ ],
+ "22-essay-example": [
+  {
+   "human": "v3.1.0",
+   "faithful": "v3.1.0",
+   "why": "Y adds 'sad' and a 'local shopping changes' framing not in the original.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v3.1.0",
+   "faithful": "tie",
+   "why": "Y's ending is simpler and more personal, while X's 'as local shopping changes' still sounds a little stock; both keep the hedges.",
+   "x_was": "v4-final"
+  }
+ ],
+ "23-academic-correlation": [
+  {
+   "human": "v3.1.0",
+   "faithful": "v4-final",
+   "why": "X drops 'self-reported' and implies use predicts GPA, while Y keeps 'associated with higher self-reported GPAs'.",
+   "x_was": "v3.1.0"
+  },
+  {
+   "human": "v3.1.0",
+   "faithful": "v4-final",
+   "why": "Y reads slightly more smoothly but drops 'self-reported' and turns use frequency into simple use, while X keeps both.",
+   "x_was": "v4-final"
+  }
+ ]
+}
