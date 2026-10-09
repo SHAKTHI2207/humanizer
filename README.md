@@ -1,8 +1,8 @@
 # Humanizer
 
-[![GitHub stars](https://img.shields.io/github/stars/blader/humanizer?style=flat)](https://github.com/blader/humanizer/stargazers) [![skills.sh installs](https://skills.sh/b/blader/humanizer)](https://skills.sh/blader/humanizer)
+[![GitHub stars](https://img.shields.io/github/stars/SHAKTHI2207/humanizer?style=flat)](https://github.com/SHAKTHI2207/humanizer/stargazers) [![Latest release](https://img.shields.io/github/v/release/SHAKTHI2207/humanizer)](https://github.com/SHAKTHI2207/humanizer/releases/latest)
 
-> **This is a fork.** Version 4.0 is maintained by Shakthivel Manivanan on top of [blader/humanizer](https://github.com/blader/humanizer) 3.1.0. See [PROVENANCE.md](PROVENANCE.md) for who contributed what. The install commands below still point at the upstream repository; replace `blader/humanizer` with this fork's path once it is published.
+> **Version 4.0** is maintained by Shakthivel Manivanan and builds on [blader/humanizer](https://github.com/blader/humanizer) 3.1.0 by Siqi Chen (MIT). See [PROVENANCE.md](PROVENANCE.md) for who contributed what.
 
 Humanizer makes AI-written text sound like a person wrote it, without changing what it says. It is built on Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), the guide Wikipedia editors use to catch AI-generated text, and it works in Claude Code, Codex, and any other agent that supports skills.
 
@@ -35,26 +35,26 @@ Once installed, the skill answers to `/humanizer`.
 ### Claude Code
 
 ```text
-/plugin marketplace add blader/humanizer
+/plugin marketplace add SHAKTHI2207/humanizer
 /plugin install humanizer@humanizer
 ```
 
-The plugin answers to `/humanizer:humanizer`. It needs Claude Code 2.1.142 or newer; on older versions, use `npx skills add blader/humanizer --global --agent claude-code`.
+The plugin answers to `/humanizer:humanizer`. It needs Claude Code 2.1.142 or newer; on older versions, use `npx skills add SHAKTHI2207/humanizer --global --agent claude-code`.
 
 ### Codex
 
 ```bash
-npx skills add blader/humanizer --global --agent codex
+npx skills add SHAKTHI2207/humanizer --global --agent codex
 ```
 
 ### Claude.ai and Claude Desktop
 
-Download this repository as a ZIP (**Code → Download ZIP**) and upload it as a skill in Settings.
+Download `humanizer.zip` from the [latest release](https://github.com/SHAKTHI2207/humanizer/releases/latest) and upload it as a skill in Settings. It holds only the skill, without the evaluation files.
 
 ### Other agents
 
 ```bash
-npx skills add blader/humanizer --global --agent '*'
+npx skills add SHAKTHI2207/humanizer --global --agent '*'
 ```
 
 This installs Humanizer for every agent the Skills CLI supports, including Gemini CLI, GitHub Copilot, and Windsurf. Leave off `--global` in any command above to install it only in the current project. For an agent the Skills CLI does not know, copy `SKILL.md` into its skill folder.

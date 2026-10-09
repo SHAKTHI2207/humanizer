@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Questions, ideas, and thanks
-    url: https://github.com/blader/humanizer/discussions
+    url: https://github.com/SHAKTHI2207/humanizer/discussions
     about: Ask how to use Humanizer, share results, or say thanks.
   - name: AI detectors still flag the output
-    url: https://github.com/blader/humanizer#humanizer
+    url: https://github.com/SHAKTHI2207/humanizer#detectors-what-is-documented-and-what-is-not
     about: Getting past AI detectors is not a goal. Humanizer edits for human readers.

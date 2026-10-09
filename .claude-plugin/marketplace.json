@@ -2,7 +2,8 @@
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "humanizer",
   "owner": {
-    "name": "Shakthivel Manivanan"
+    "name": "Shakthivel Manivanan",
+    "url": "https://github.com/SHAKTHI2207"
   },
   "description": "Install Humanizer as a Claude plugin.",
   "plugins": [

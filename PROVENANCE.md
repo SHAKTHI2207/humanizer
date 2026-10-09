@@ -1,6 +1,6 @@
 # Provenance
 
-This repository is a fork of [blader/humanizer](https://github.com/blader/humanizer) (MIT license, copyright 2025 Siqi Chen). Version 4.0.0 is maintained by Shakthivel Manivanan. This file records who contributed what, so that neither side's work is misattributed.
+This repository is derived from [blader/humanizer](https://github.com/blader/humanizer) (MIT license, copyright 2025 Siqi Chen). Version 4.0.0 is maintained by Shakthivel Manivanan. This file records who contributed what, so that neither side's work is misattributed.
 
 ## Upstream (blader/humanizer, through v3.1.0)
 
@@ -20,20 +20,20 @@ These are original to this fork and came from its maintainer:
 
 ## Where each contribution lives
 
-Commits are on the `shakthi/v4` branch. Replace the short hashes with links once the fork is published.
+The upstream history is kept in full; the 4.0 work is in the commits below.
 
 | Contribution | Where to see it | Commit |
 |---|---|---|
-| Strict-fidelity goal | `SKILL.md` "How to work" step 2, README "What 4.0 changes" | `dccbe14`, `4bfe3b6` |
-| Sharpen feelings, never invent them | `SKILL.md` "Voice" and "What to return" | `dccbe14` |
-| Magnitude and claim-strength preservation | `SKILL.md` "How to work" step 2; `eval/samples/19`–`23` | `dccbe14`, `771bcf7` |
-| Academic-register rules | `SKILL.md` "Voice" (academic bullet), §9, §12, §13 | `dccbe14` |
-| Blind judging in both presentation orders | `eval/blind_pairs.py`, `eval/judge.py`, `eval/blind/` | `771bcf7` |
-| Invented-feeling and distortion tests | `eval/test_fidelity.py`, `keep`/`forbid` in `eval/samples/` | `771bcf7` |
-| Detector evidence and its interpretation | README "Detectors: what is documented and what is not" | `4bfe3b6` |
-| Human evaluation design | `eval/human_eval.py`, `eval/human/` | `771bcf7` |
+| Strict-fidelity goal | `SKILL.md` "How to work" step 2, README "What 4.0 changes" | [`dccbe14`](https://github.com/SHAKTHI2207/humanizer/commit/dccbe14), [`4bfe3b6`](https://github.com/SHAKTHI2207/humanizer/commit/4bfe3b6) |
+| Sharpen feelings, never invent them | `SKILL.md` "Voice" and "What to return" | [`dccbe14`](https://github.com/SHAKTHI2207/humanizer/commit/dccbe14) |
+| Magnitude and claim-strength preservation | `SKILL.md` "How to work" step 2; `eval/samples/19`–`23` | [`dccbe14`](https://github.com/SHAKTHI2207/humanizer/commit/dccbe14), [`771bcf7`](https://github.com/SHAKTHI2207/humanizer/commit/771bcf7) |
+| Academic-register rules | `SKILL.md` "Voice" (academic bullet), §9, §12, §13 | [`dccbe14`](https://github.com/SHAKTHI2207/humanizer/commit/dccbe14) |
+| Blind judging in both presentation orders | `eval/blind_pairs.py`, `eval/judge.py`, `eval/blind/` | [`771bcf7`](https://github.com/SHAKTHI2207/humanizer/commit/771bcf7) |
+| Invented-feeling and distortion tests | `eval/test_fidelity.py`, `keep`/`forbid` in `eval/samples/` | [`771bcf7`](https://github.com/SHAKTHI2207/humanizer/commit/771bcf7) |
+| Detector evidence and its interpretation | README "Detectors: what is documented and what is not" | [`4bfe3b6`](https://github.com/SHAKTHI2207/humanizer/commit/4bfe3b6) |
+| Human evaluation design | `eval/human_eval.py`, `eval/human/` | [`771bcf7`](https://github.com/SHAKTHI2207/humanizer/commit/771bcf7) |
 
-The upstream history (everything up to `225a6f3`, blader/humanizer 3.1.0) is unchanged on this branch.
+The upstream history (everything up to [`225a6f3`](https://github.com/SHAKTHI2207/humanizer/commit/225a6f3), blader/humanizer 3.1.0) is unchanged in this repository.
 
 ## How the v4.0.0 code and text were produced
 
