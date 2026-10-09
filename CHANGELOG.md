@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.0.0
+
+First release of this fork (maintainer: Shakthivel Manivanan; upstream: blader/humanizer 3.1.0, see PROVENANCE.md). The goal changes from "remove AI tells" to "maximum naturalness under strict fidelity to what the writer said." No patterns were added, removed, or renumbered. Status: release candidate. It has not yet been validated by human readers or by several runs per version; see README "Evaluation".
+
+- **Sharpen feelings, never invent them.** The rewrite may voice a feeling the source states more naturally ("Devastating" can become "I took it harder than I'd like to admit") but never adds one. Up to two optional reactions may appear below the rewrite, labeled as suggestions, never inside it.
+- **Claims keep their strength.** some/most, may/will, "30% failed"/"took down checkout", "increased 10%"/"surged", one possible explanation/the reason, correlation/cause, one example/a rule, no comparison or superlative the source lacks ("more patience than any hobby I've tried"), and a stated conclusion ("the evidence is mixed") are all held fixed. A slogan or send-off is not a conclusion and is still cut.
+- **Academic writing.** Hedges that mark real limits are kept. Claims are never strengthened, and weakened only where the text's own evidence shows an overclaim. Verbs over nominalizations, named actors, stock transitions (Moreover, Furthermore, Notably) cut, citations left as written and flagged when doubtful.
+- **Overcorrection guards.** A checklist of the tells that editing itself creates: dashes swapped for parentheses, chopped sentences, casual words the writer never used, encyclopedia flatness in personal writing, and courtesy stripped from emails or added to them. Variation follows the content, never a rule: no added typos, slang, or contractions the register would not use.
+- **New watched phrases:** In conclusion/Ultimately/Overall closers, a question answered at once ("The result?"), leverage/seamless/navigate/unlock and other sales-deck words, "in today's fast-paced world", "whether you're a beginner or an expert", "I hope this email finds you well", and evidence overclaims (demonstrates, proves, paving the way).
+- **Shorter default output.** The final rewrite comes first, then at most three short notes. The draft and critique are shown only on request.
+- **Examples no longer teach invention.** Nine upstream Before/After pairs whose After added or changed facts (for example "a hash map", "considered a delicacy", "totaling 3,000" for "over 3,000", "Let me know if that works.") now keep exactly what their Before says, or were cut. Two more examples (§5 fake alternative, §21) and several duplicates were cut to stay under the 5,500-word cap.
+- **Evaluation harness** in `eval/`: 23 samples across seven kinds of writing, a deterministic tell and register counter, deterministic fidelity tests, blind pairwise judging in both presentation orders, and printable packets for a blind human evaluation. Across three evaluation rounds, 4.0 was more natural and more faithful than 3.1.0 every time. It was more faithful but less natural than the experimental step 5, which invented the writer's reactions. Against step 4 the results were mixed. See README "Evaluation".
+
 ## 3.1.0
 
 - Added pattern #26 and section F for replies that re-explain context the reader already has (#269). It acts on replies, not standalone writing. 26 patterns total.
