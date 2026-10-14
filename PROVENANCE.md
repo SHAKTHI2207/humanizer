@@ -46,3 +46,6 @@ The fork's changes were implemented with an AI coding assistant (Claude) working
 - Liang et al. (2023), "GPT detectors are biased against non-native English writers", *Patterns*, doi:10.1016/j.patter.2023.100779.
 
 These informed and validated the implementation. They are not the source of the fork's idea.
+
+## Web app (`app/`)
+Written with Claude (Anthropic) in a Claude Code session by Shakthivel Manivanan. It vendors nothing: it reads the root `SKILL.md` at runtime, so the MIT license and upstream credit above cover its engine. Its own notes are in `app/PROVENANCE.md`.

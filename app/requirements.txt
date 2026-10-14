@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+anthropic
+sentence-transformers
+transformers
+torch
+httpx
+playwright

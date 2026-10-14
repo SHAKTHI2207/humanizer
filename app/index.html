@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Draftwell</title>
+<style>
+/* Design tokens. Breakpoints: 900px (panels stack), 640px (compact nav). Product name: change BRAND in the script and <title>. */
+:root{
+  --bg:#faf8f4; --surface:#fff; --surface-2:#f3f1ec; --ink:#17211f; --muted:#56635f; --line:#e2ded4;
+  --accent:#0f766e; --accent-hover:#0b5f58; --accent-soft:#dff1ee; --on-accent:#fff;
+  --danger:#b42318; --danger-soft:#fdeceb; --ins:#cdeedb; --del:#f8d9d5;
+  --r-sm:6px; --r-md:10px; --r-lg:14px;
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px;
+  --shadow-1:0 1px 2px rgba(23,33,31,.06); --shadow-2:0 10px 28px rgba(23,33,31,.14);
+  --font:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --fs-sm:.8125rem; --fs-md:.9375rem; --fs-lg:1.0625rem;
+  --focus:0 0 0 2px var(--bg),0 0 0 4px var(--accent);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0e1413; --surface:#151d1b; --surface-2:#1c2725; --ink:#e8efed; --muted:#9db0ab; --line:#2a3633;
+  --accent:#34c3b2; --accent-hover:#58d8c8; --accent-soft:#12312d; --on-accent:#06201d;
+  --danger:#f0766b; --danger-soft:#3a1d1a; --ins:#17402c; --del:#4a2420;
+  --shadow-1:none; --shadow-2:0 10px 28px rgba(0,0,0,.5); color-scheme:dark;}}
+:root[data-theme=dark]{
+  --bg:#0e1413; --surface:#151d1b; --surface-2:#1c2725; --ink:#e8efed; --muted:#9db0ab; --line:#2a3633;
+  --accent:#34c3b2; --accent-hover:#58d8c8; --accent-soft:#12312d; --on-accent:#06201d;
+  --danger:#f0766b; --danger-soft:#3a1d1a; --ins:#17402c; --del:#4a2420;
+  --shadow-1:none; --shadow-2:0 10px 28px rgba(0,0,0,.5); color-scheme:dark;}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:var(--bg);color:var(--ink);font:var(--fs-md)/1.5 var(--font)}
+h1,h2,h3{margin:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:var(--s3);top:-48px;background:var(--accent);color:var(--on-accent);padding:var(--s2) var(--s3);border-radius:var(--r-md);z-index:50}
+.skip:focus{top:var(--s2)}
+.muted{color:var(--muted)}
+
+/* nav */
+.nav{display:flex;align-items:center;gap:var(--s4);padding-block:var(--s3);padding-left:max(var(--s5),env(safe-area-inset-left,0px));padding-right:max(var(--s5),env(safe-area-inset-right,0px));background:var(--surface);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:var(--s2);font-weight:650;letter-spacing:-.01em;font-size:1.0625rem}
+.mark{width:26px;height:26px;border-radius:8px;background:var(--accent);color:var(--on-accent);display:grid;place-items:center}
+.tab{padding:6px 10px;border-radius:var(--r-md);color:var(--ink);font-weight:600;background:var(--accent-soft)}
+.docname{font:inherit;font-weight:550;color:var(--ink);background:transparent;border:1px solid transparent;border-radius:var(--r-md);padding:6px 10px;width:min(280px,34vw)}
+.docname:hover{border-color:var(--line)}
+.docname:focus-visible{outline:none;box-shadow:var(--focus);border-color:var(--accent)}
+.spacer{flex:1}
+
+/* buttons */
+.btn{position:relative;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 12px;border-radius:var(--r-md);font:inherit;font-weight:550;cursor:pointer;line-height:1.2;white-space:nowrap}
+.btn:hover:not(:disabled){background:var(--surface-2)}
+.btn:focus-visible,summary:focus-visible,select:focus-visible,.seg-ctl button:focus-visible,.sw input:focus-visible{outline:none;box-shadow:var(--focus)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.primary:hover:not(:disabled){background:var(--accent-hover);border-color:var(--accent-hover)}
+.btn.ghost{background:transparent;border-color:transparent}
+.btn.ghost:hover:not(:disabled){background:var(--surface-2)}
+.btn.icon{width:32px;height:32px;padding:0;justify-content:center}
+svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+kbd{font:var(--fs-sm) var(--font);opacity:.8;border:1px solid currentColor;border-radius:4px;padding:0 4px}
+[data-tip]:hover::after,[data-tip]:focus-visible::after{content:attr(data-tip);position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);font-size:12px;font-weight:500;padding:4px 8px;border-radius:var(--r-sm);white-space:nowrap;z-index:40;pointer-events:none}
+.ph .btn:last-child[data-tip]::after{left:auto;right:0;transform:none}
+
+/* layout */
+main{flex:1;display:flex;flex-direction:column;gap:var(--s3);width:100%;max-width:1500px;margin:0 auto;padding-block:var(--s4) var(--s5);padding-left:max(var(--s5),env(safe-area-inset-left,0px));padding-right:max(var(--s5),env(safe-area-inset-right,0px))}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3)}
+.field{display:flex;align-items:center;gap:var(--s2)}
+.field label{font-size:var(--fs-sm);color:var(--muted);font-weight:600}
+select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:7px 28px 7px 10px}
+.seg-ctl{display:inline-flex;gap:2px;padding:2px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md)}
+.seg-ctl button{border:0;background:none;color:var(--muted);font:inherit;font-weight:550;padding:5px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.seg-ctl button:hover{color:var(--ink)}
+.seg-ctl button[aria-pressed=true]{background:var(--accent-soft);color:var(--ink)}
+.banner{padding:var(--s3) var(--s4);border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface-2)}
+.banner.warn{background:var(--danger-soft);border-color:var(--danger)}
+.ws{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);height:calc(100vh - 200px);min-height:480px}
+.ws[data-view=split] #pDiff,.ws[data-view=original] #pOut,.ws[data-view=original] #pDiff,
+.ws[data-view=humanized] #pSrc,.ws[data-view=humanized] #pDiff,.ws[data-view=changes] #pSrc,.ws[data-view=changes] #pOut{display:none}
+.ws:not([data-view=split]){grid-template-columns:minmax(0,860px);justify-content:center}
+.panel{display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-1)}
+.panel:focus-within{border-color:var(--accent)}
+.ph{display:flex;align-items:center;gap:var(--s1);padding:var(--s2) var(--s3);border-bottom:1px solid var(--line)}
+.ph h2{flex:1;font-size:var(--fs-sm);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ed,.diff{flex:1;min-height:0;width:100%;border:0;outline:0;resize:none;overflow:auto;background:transparent;color:inherit;padding:var(--s4);font:var(--fs-lg)/1.7 var(--font)}
+.ed::placeholder{color:var(--muted);opacity:.85}
+.ed[readonly]{opacity:.7}
+.diff{white-space:normal}
+.diff:focus-visible{box-shadow:inset var(--focus)}
+del{background:var(--del);text-decoration:line-through;text-decoration-thickness:1px;border-radius:3px}
+ins{background:var(--ins);text-decoration:none;border-radius:3px}
+del+ins{margin-left:3px}
+.legend{font-size:var(--fs-sm);display:flex;gap:var(--s3);align-items:center;margin-left:var(--s3)}
+.pf{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s1) var(--s4);padding:var(--s2) var(--s3);border-top:1px solid var(--line);color:var(--muted);font-size:var(--fs-sm)}
+.pf b{color:var(--ink);font-weight:650}
+.pf .grow{flex:1}
+.over{color:var(--danger);font-weight:650}
+.alert{display:flex;align-items:center;gap:var(--s3);margin:var(--s3);padding:var(--s2) var(--s3);background:var(--danger-soft);border:1px solid var(--danger);border-radius:var(--r-md)}
+.alert span{flex:1}
+.notes{margin:0 var(--s3) var(--s2);font-size:var(--fs-sm);color:var(--muted)}
+.notes summary{cursor:pointer;font-weight:600}
+.notes ul{margin:var(--s2) 0 0;padding-left:var(--s5)}
+.spin{display:inline-block;width:12px;height:12px;border:2px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:sp .8s linear infinite;vertical-align:-2px}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spin{animation:none;border-top-color:var(--line);border-right-color:var(--accent)}}
+
+/* options menu */
+.menu{position:relative}
+.menu summary{list-style:none;cursor:pointer}
+.menu summary::-webkit-details-marker{display:none}
+.pop{position:absolute;right:0;top:calc(100% + 8px);z-index:30;width:min(360px,92vw);padding:var(--s4);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-2)}
+.pop h3{font-size:var(--fs-sm);font-weight:700;margin:0 0 var(--s2);letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.pop h3:not(:first-child){margin-top:var(--s4)}
+.pop textarea{width:100%;min-height:96px;resize:vertical;font:var(--fs-md)/1.5 var(--font);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s2) var(--s3)}
+.pop textarea:focus-visible{outline:none;box-shadow:var(--focus)}
+.hint{font-size:var(--fs-sm);color:var(--muted);margin:var(--s1) 0}
+.sw{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);padding:6px 0;cursor:pointer}
+.sw input{appearance:none;flex:none;width:36px;height:20px;border-radius:20px;background:var(--line);position:relative;cursor:pointer;transition:background .15s}
+.sw input::before{content:"";position:absolute;left:2px;top:2px;width:16px;height:16px;border-radius:50%;background:var(--surface);box-shadow:0 1px 2px rgba(0,0,0,.3);transition:transform .15s}
+.sw input:checked{background:var(--accent)}
+.sw input:checked::before{transform:translateX(16px)}
+
+/* dialogs + toast */
+dialog{max-width:min(440px,92vw);padding:var(--s5);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-2)}
+dialog::backdrop{background:rgba(10,16,15,.45)}
+dialog form{display:flex;justify-content:flex-end;gap:var(--s2);margin-top:var(--s4)}
+dialog h2{font-size:1.125rem;margin-bottom:var(--s2)}
+.toast{position:fixed;left:50%;bottom:var(--s5);transform:translateX(-50%);padding:var(--s2) var(--s4);background:var(--ink);color:var(--bg);border-radius:var(--r-md);box-shadow:var(--shadow-2);font-weight:550;z-index:60}
+
+@media (max-width:900px){
+  main{padding-block:var(--s3);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .ws{height:auto;min-height:0;grid-template-columns:1fr!important}
+  .ed,.diff{min-height:260px}
+  .panel{min-height:300px}
+  .seg-ctl{max-width:100%;overflow-x:auto}
+}
+@media (max-width:640px){
+  .nav{gap:var(--s2);padding-block:var(--s2);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .tab,.brand span.name{display:none}
+  .docname{width:100%;flex:1;min-width:0}
+  .nav .btn .lbl{display:none}
+  .bar>.btn.primary{width:100%;justify-content:center}
+}
+</style>
+
+<a class="skip" href="#src">Skip to editor</a>
+<header class="nav">
+  <div class="brand"><span class="mark" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg></span><span class="name" id="brandName">Draftwell</span></div>
+  <span class="tab" aria-current="page">Editor</span>
+  <label class="sr" for="docname">Document name</label>
+  <input id="docname" class="docname" value="Untitled document" autocomplete="off">
+  <span class="spacer"></span>
+  <details class="menu" id="menu">
+    <summary class="btn" aria-label="Options"><svg class="i" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg><span class="lbl">Options</span></summary>
+    <div class="pop">
+      <h3>Humanization options</h3>
+      <div id="switches"></div>
+      <h3>Voice sample <span class="muted">(optional)</span></h3>
+      <p class="hint">Paste a few paragraphs you wrote. Used for rhythm and wording only; its content and mistakes are not copied. It is sent with each request and not stored.</p>
+      <label class="sr" for="sample">Voice sample</label>
+      <textarea id="sample"></textarea>
+      <div class="hint"><span id="smc">0</span> / <span id="smm">5,000</span> characters</div>
+    </div>
+  </details>
+  <button class="btn icon ghost" id="theme" data-tip="Switch theme" aria-label="Switch theme"><svg class="i" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg></button>
+  <button class="btn ghost" id="about">About</button>
+</header>
+
+<main id="main">
+  <div class="banner warn" id="banner" role="alert" hidden></div>
+  <div class="bar">
+    <div class="field"><label for="ctx">Writing context</label><select id="ctx"></select></div>
+    <div class="seg-ctl" role="group" aria-label="View" id="views">
+      <button data-view="split" aria-pressed="true">Side by side</button>
+      <button data-view="original" aria-pressed="false">Original</button>
+      <button data-view="humanized" aria-pressed="false">Humanized</button>
+      <button data-view="changes" aria-pressed="false">Changes</button>
+    </div>
+    <span class="spacer"></span>
+    <button class="btn primary" id="hum" disabled><span class="spin" id="humSpin" hidden></span><span id="humLbl">Humanize</span> <kbd>Ctrl ↵</kbd></button>
+  </div>
+
+  <div class="ws" id="ws" data-view="split">
+    <section class="panel" id="pSrc" aria-labelledby="hSrc">
+      <div class="ph">
+        <h2 id="hSrc">Original</h2>
+        <button class="btn icon ghost" id="paste" data-tip="Paste from clipboard" aria-label="Paste from clipboard"><svg class="i" viewBox="0 0 24 24"><path d="M9 4h6v3H9z"/><path d="M15 5h2a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2"/></svg></button>
+        <button class="btn icon ghost" id="undo" data-tip="Undo last change to the original" aria-label="Undo last change to the original"><svg class="i" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg></button>
+        <button class="btn icon ghost" id="clear" data-tip="Clear original" aria-label="Clear original"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </div>
+      <label class="sr" for="src">Original text</label>
+      <textarea id="src" class="ed" placeholder="Paste or type your text here, then choose a writing context and press Humanize." spellcheck="true"></textarea>
+      <div class="pf">
+        <span><b id="sw">0</b> words</span>
+        <span><b id="sc">0</b> / <span id="sm">20,000</span> characters</span>
+        <span class="over" id="over" hidden></span>
+      </div>
+    </section>
+
+    <section class="panel" id="pOut" aria-labelledby="hOut">
+      <div class="ph">
+        <h2 id="hOut">Humanized</h2>
+        <button class="btn icon ghost" id="regen" data-tip="Regenerate" aria-label="Regenerate"><svg class="i" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-3-6.2"/><path d="M20 4v5h-5"/></svg></button>
+        <button class="btn icon ghost" id="restore" data-tip="Restore last generated version" aria-label="Restore last generated version"><svg class="i" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v5h5"/></svg></button>
+        <button class="btn icon ghost" id="replace" data-tip="Replace original with this text" aria-label="Replace original with this text"><svg class="i" viewBox="0 0 24 24"><path d="M20 12H4m6-6-6 6 6 6"/></svg></button>
+        <button class="btn icon ghost" id="dl" data-tip="Download as .txt" aria-label="Download as .txt"><svg class="i" viewBox="0 0 24 24"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg></button>
+        <button class="btn icon ghost" id="copy" data-tip="Copy" aria-label="Copy humanized text"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg></button>
+      </div>
+      <div class="alert" id="err" role="alert" hidden><span id="errMsg"></span><button class="btn" id="retry">Retry</button></div>
+      <label class="sr" for="out">Humanized text (editable)</label>
+      <textarea id="out" class="ed" placeholder="The humanized version appears here. You can edit it before copying." spellcheck="true"></textarea>
+      <details class="notes" id="notes" hidden><summary id="notesSum"></summary><ul id="notesList"></ul></details>
+      <div class="pf">
+        <span><b id="ow">0</b> words</span>
+        <span><b id="oc">0</b> characters</span>
+        <span class="grow"></span>
+        <span aria-live="polite"><span class="spin" id="spin" hidden></span> <span id="status">Ready</span></span>
+        <button class="btn" id="cancel" hidden>Cancel</button>
+      </div>
+    </section>
+
+    <section class="panel" id="pDiff" aria-labelledby="hDiff">
+      <div class="ph">
+        <h2 id="hDiff">Changes</h2>
+        <span class="muted" id="chg"></span>
+        <span class="legend"><del>removed</del><ins>added</ins></span>
+      </div>
+      <div class="diff" id="diff" tabindex="0" aria-label="Differences between the original and the humanized text"></div>
+      <div class="pf">Highlights show where the wording differs. They don't mean a change is necessary or correct.</div>
+    </section>
+  </div>
+</main>
+
+<dialog id="confirm" aria-labelledby="cTitle">
+  <h2 id="cTitle">Are you sure?</h2><p id="cMsg"></p>
+  <form method="dialog"><button class="btn" value="cancel">Cancel</button><button class="btn primary" value="ok" id="cOk">Continue</button></form>
+</dialog>
+<dialog id="aboutDlg" aria-labelledby="aTitle">
+  <h2 id="aTitle">About</h2>
+  <p>This editor rewrites your text with the humaniser skill and checks that numbers, names, certainty and meaning survive. Review every rewrite before you use it.</p>
+  <p>It does not measure AI-detection results and cannot promise any. Your text is sent to the configured model provider for each request and is not stored by this app.</p>
+  <form method="dialog"><button class="btn primary" value="ok">Close</button></form>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+const BRAND = 'Draftwell'; // temporary name: change here and in <title>
+const $ = id => document.getElementById(id);
+const src = $('src'), out = $('out'), sample = $('sample');
+const LS = {
+  get(k) { try { return JSON.parse(localStorage.getItem('dw.' + k)); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem('dw.' + k, JSON.stringify(v)); } catch {} },
+};
+let cfg = {max_chars: 20000, max_sample: 5000, contexts: [], options: [], configured: true, semantic: true};
+let generated = '', busy = false, prevInput = null, ctl = null, why = '', lastSegs = [];
+
+const wc = t => (t.trim() ? t.trim().split(/\s+/).length : 0);
+const fmt = n => n.toLocaleString();
+const edited = () => generated !== '' && out.value !== generated;
+const over = () => src.value.length > cfg.max_chars || sample.value.length > cfg.max_sample;
+
+/* ---------- diff (word level, short unchanged gaps absorbed so the view stays readable) ---------- */
+const isNL = t => t[0] === '\n';
+const toks = s => (s.match(/\S+|\n+/g) || []).map(t => isNL(t) ? (t.length > 1 ? '\n\n' : '\n') : t);
+
+function diffOps(a, b) {
+  let s = 0; while (s < a.length && s < b.length && a[s] === b[s]) s++;
+  let e = 0; while (e < a.length - s && e < b.length - s && a[a.length - 1 - e] === b[b.length - 1 - e]) e++;
+  const A = a.slice(s, a.length - e), B = b.slice(s, b.length - e), m = A.length, n = B.length;
+  if (m * n > 16e6) return null;
+  const t = Array.from({length: m + 1}, () => new Uint16Array(n + 1));
+  for (let i = m - 1; i >= 0; i--) for (let j = n - 1; j >= 0; j--)
+    t[i][j] = A[i] === B[j] ? t[i + 1][j + 1] + 1 : Math.max(t[i + 1][j], t[i][j + 1]);
+  const ops = a.slice(0, s).map(w => ['eq', w]);
+  let i = 0, j = 0;
+  while (i < m && j < n) {
+    if (A[i] === B[j]) { ops.push(['eq', A[i]]); i++; j++; }
+    else if (t[i + 1][j] >= t[i][j + 1]) ops.push(['del', A[i++]]);
+    else ops.push(['ins', B[j++]]);
+  }
+  while (i < m) ops.push(['del', A[i++]]);
+  while (j < n) ops.push(['ins', B[j++]]);
+  for (let k = a.length - e; k < a.length; k++) ops.push(['eq', a[k]]);
+  return ops;
+}
+
+function chunks(ops) {
+  const runs = [];
+  for (const [t, w] of ops) { const l = runs[runs.length - 1]; if (l && l.t === t) l.w.push(w); else runs.push({t, w: [w]}); }
+  const res = [];
+  const change = () => { let c = res[res.length - 1]; if (!c || !c.del) { c = {del: [], ins: []}; res.push(c); } return c; };
+  runs.forEach((r, k) => {
+    if (r.t !== 'eq') { const c = change(); (r.t === 'del' ? c.del : c.ins).push(...r.w); return; }
+    const gap = k > 0 && k < runs.length - 1 && r.w.length <= 2 && !r.w.some(isNL);
+    if (gap) { const c = change(); c.del.push(...r.w); c.ins.push(...r.w); } else res.push({eq: r.w});
+  });
+  return res;
+}
+
+function put(parent, ws, tag) {
+  const host = tag ? document.createElement(tag) : document.createDocumentFragment();
+  ws.forEach(w => { if (isNL(w)) { host.append(document.createElement('br')); if (w.length > 1) host.append(document.createElement('br')); } else host.append(w + ' '); });
+  parent.append(host);
+}
+
+function renderDiff() { // textContent/text nodes only: model output is untrusted
+  const d = $('diff'); d.replaceChildren(); $('chg').textContent = '';
+  if (!src.value.trim() || !out.value.trim()) { d.textContent = 'Humanize some text to compare it with the original.'; return; }
+  const ops = diffOps(toks(src.value), toks(out.value));
+  if (!ops) { d.textContent = 'These texts are too long to compare word by word.'; return; }
+  const cs = chunks(ops); let n = 0;
+  for (const c of cs) {
+    if (c.eq) put(d, c.eq);
+    else { n++; if (c.del.length) put(d, c.del, 'del'); if (c.ins.length) put(d, c.ins, 'ins'); }
+  }
+  $('chg').textContent = n + (n === 1 ? ' change' : ' changes');
+}
+
+/* ---------- ui helpers ---------- */
+let toastTimer;
+function toast(msg) { const t = $('toast'); t.textContent = msg; t.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => t.hidden = true, 2200); }
+
+function ask(msg, ok = 'Continue', title = 'Are you sure?') {
+  return new Promise(res => {
+    $('cTitle').textContent = title; $('cMsg').textContent = msg; $('cOk').textContent = ok;
+    const d = $('confirm'); d.returnValue = ''; d.onclose = () => res(d.returnValue === 'ok'); d.showModal();
+  });
+}
+
+async function copyText(t) {
+  try { await navigator.clipboard.writeText(t); }
+  catch {
+    const ta = document.createElement('textarea'); ta.value = t; ta.style.cssText = 'position:fixed;opacity:0';
+    document.body.append(ta); ta.select(); const ok = document.execCommand('copy'); ta.remove(); if (!ok) throw new Error('copy');
+  }
+}
+
+function setStatus(t) { $('status').textContent = t; }
+function showError(msg, canRetry = true) { $('errMsg').textContent = msg; $('retry').hidden = !canRetry; $('err').hidden = false; setStatus('Failed'); }
+
+function sync() {
+  const s = src.value, o = out.value, tooBig = over();
+  $('sw').textContent = wc(s); $('sc').textContent = fmt(s.length); $('sm').textContent = fmt(cfg.max_chars);
+  $('ow').textContent = wc(o); $('oc').textContent = fmt(o.length);
+  $('smc').textContent = fmt(sample.value.length); $('smm').textContent = fmt(cfg.max_sample);
+  const ov = $('over'); ov.hidden = !tooBig;
+  if (tooBig) ov.textContent = s.length > cfg.max_chars ? `Over the limit by ${fmt(s.length - cfg.max_chars)} characters` : 'Voice sample is over its limit';
+  $('sc').classList.toggle('over', s.length > cfg.max_chars);
+  $('smc').classList.toggle('over', sample.value.length > cfg.max_sample);
+  const can = s.trim() && !busy && !tooBig && cfg.configured;
+  $('hum').disabled = !can; $('regen').disabled = !can;
+  $('paste').disabled = busy; $('clear').disabled = busy || !s; $('undo').disabled = busy || prevInput === null;
+  $('copy').disabled = !o; $('dl').disabled = !o; $('replace').disabled = busy || !o || o === s;
+  $('restore').disabled = busy || !edited();
+  src.readOnly = out.readOnly = busy;
+  $('humSpin').hidden = $('spin').hidden = !busy; $('cancel').hidden = !busy;
+  $('humLbl').textContent = busy ? 'Humanizing…' : 'Humanize';
+  $('ws').setAttribute('aria-busy', busy);
+}
+
+function setView(v) {
+  $('ws').dataset.view = v;
+  document.querySelectorAll('#views button').forEach(b => b.setAttribute('aria-pressed', b.dataset.view === v));
+  if (v === 'changes') renderDiff();
+}
+
+function renderNotes(segs) {
+  const bad = segs.map((s, i) => ({...s, n: i + 1})).filter(s => !s.ok);
+  const list = $('notesList'); list.replaceChildren();
+  bad.forEach(s => {
+    const li = document.createElement('li');
+    li.textContent = `Paragraph ${s.n}: ${s.issues.length ? s.issues.join('; ') : 'meaning may have drifted'}` +
+      (s.sim != null ? ` (similarity ${s.sim}, entailment ${s.entail})` : '');
+    list.append(li);
+  });
+  if (!cfg.semantic) {
+    const li = document.createElement('li');
+    li.textContent = 'Meaning checks are limited: the similarity and entailment models are not installed, so only numbers, names, certainty words and hedges were checked.';
+    list.append(li);
+  }
+  $('notesSum').textContent = bad.length ? `Review notes (${bad.length} paragraph${bad.length > 1 ? 's' : ''} flagged)` : 'Notes';
+  $('notes').hidden = !list.children.length;
+  return bad.length;
+}
+
+/* ---------- actions ---------- */
+async function run() {
+  if ($('hum').disabled) return;
+  if (edited() && !(await ask('Humanizing again will replace your edits to the humanized text.', 'Replace edits'))) return;
+  busy = true; why = ''; $('err').hidden = true; setStatus('Humanizing…'); sync();
+  ctl = new AbortController();
+  const timer = setTimeout(() => { why = 'timeout'; ctl.abort(); }, 150000);
+  try {
+    const options = {}; document.querySelectorAll('#switches input').forEach(i => options[i.dataset.key] = i.checked);
+    const r = await fetch('/rewrite', {method: 'POST', headers: {'Content-Type': 'application/json'}, signal: ctl.signal,
+      body: JSON.stringify({text: src.value, context: $('ctx').value, options, sample: sample.value})});
+    if (!r.ok) {
+      let d = ''; try { d = (await r.json()).detail; } catch {}
+      throw new Error(typeof d === 'string' && d ? d : r.status === 422 ? 'The text could not be processed. It may be empty or over the length limit.' : `Request failed (${r.status}).`);
+    }
+    lastSegs = await r.json();
+    generated = lastSegs.map(s => s.out).join('\n\n'); out.value = generated;
+    const bad = renderNotes(lastSegs);
+    setStatus(`Done · ${lastSegs.length} paragraph${lastSegs.length > 1 ? 's' : ''}` + (bad ? ` · ${bad} to review` : ''));
+    if ($('ws').dataset.view === 'changes') renderDiff();
+    if (matchMedia('(max-width:900px)').matches) $('pOut').scrollIntoView({block: 'start'});
+  } catch (e) {
+    if (why === 'cancel') setStatus('Cancelled');
+    else if (why === 'timeout') showError('This is taking too long. Your text is unchanged. Try again.');
+    else if (e.name === 'TypeError') showError('Could not reach the server. Check your connection and try again. Your text is unchanged.');
+    else showError(e.message);
+  } finally { clearTimeout(timer); busy = false; sync(); }
+}
+
+$('hum').onclick = $('regen').onclick = $('retry').onclick = run;
+$('cancel').onclick = () => { why = 'cancel'; ctl.abort(); };
+[src, out].forEach(el => el.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); run(); } }));
+[src, out, sample].forEach(el => el.addEventListener('input', sync));
+
+$('paste').onclick = async () => {
+  try { const t = await navigator.clipboard.readText(); src.focus(); src.setRangeText(t, src.selectionStart, src.selectionEnd, 'end'); sync(); }
+  catch { toast('Paste is blocked by the browser. Click the text area and press Ctrl+V.'); }
+};
+$('clear').onclick = async () => {
+  if ((src.value.length > 200 || edited()) && !(await ask('This removes the original text. You can undo it afterwards.', 'Clear text'))) return;
+  prevInput = src.value; src.value = ''; sync(); src.focus();
+};
+$('undo').onclick = () => { if (prevInput === null) return; src.value = prevInput; prevInput = null; sync(); src.focus(); };
+$('replace').onclick = () => { prevInput = src.value; src.value = out.value; sync(); toast('Original replaced. Use undo to bring it back.'); };
+$('restore').onclick = () => { out.value = generated; sync(); toast('Restored the last generated version'); };
+$('copy').onclick = async () => { try { await copyText(out.value); toast('Copied to clipboard'); } catch { toast('Copy failed. Select the text and press Ctrl+C.'); } };
+$('dl').onclick = () => {
+  const name = ($('docname').value.trim() || 'document').replace(/[^\w\- ]+/g, '').trim() || 'document';
+  const a = Object.assign(document.createElement('a'), {href: URL.createObjectURL(new Blob([out.value], {type: 'text/plain'})), download: name + '-humanized.txt'});
+  a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+};
+document.querySelectorAll('#views button').forEach(b => b.onclick = () => setView(b.dataset.view));
+$('about').onclick = () => $('aboutDlg').showModal();
+$('docname').oninput = () => document.title = ($('docname').value.trim() || 'Untitled document') + ' · ' + BRAND;
+
+function theme(t) {
+  if (t) { document.documentElement.dataset.theme = t; LS.set('theme', t); }
+  const dark = matchMedia('(prefers-color-scheme:dark)').matches;
+  const cur = document.documentElement.dataset.theme || (dark ? 'dark' : 'light');
+  const lab = cur === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+  $('theme').dataset.tip = lab; $('theme').setAttribute('aria-label', lab);
+}
+$('theme').onclick = () => theme((document.documentElement.dataset.theme || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light')) === 'dark' ? 'light' : 'dark');
+
+const menu = $('menu');
+document.addEventListener('click', e => { if (!menu.contains(e.target)) menu.open = false; });
+menu.addEventListener('keydown', e => { if (e.key === 'Escape') { menu.open = false; menu.querySelector('summary').focus(); } });
+
+/* ---------- init ---------- */
+(async function init() {
+  $('brandName').textContent = BRAND; document.title = 'Untitled document · ' + BRAND;
+  const saved = LS.get('theme'); if (saved) document.documentElement.dataset.theme = saved; theme();
+  try { cfg = await (await fetch('/config')).json(); }
+  catch { $('banner').textContent = 'Could not reach the server. Reload the page to try again.'; $('banner').hidden = false; }
+  if (cfg.demo) { $('banner').className = 'banner'; $('banner').textContent = 'Demo mode: no model is connected. A small rule-based stand-in makes simple word swaps so you can explore the interface and API. Its output does not represent the real humanizer.'; $('banner').hidden = false; }
+  else if (!cfg.configured) { $('banner').textContent = 'The server has no model credentials (ANTHROPIC_API_KEY is not set), so humanizing is unavailable until it is.'; $('banner').hidden = false; }
+  const ctxSel = $('ctx'), prefs = LS.get('options') || {};
+  cfg.contexts.forEach(c => ctxSel.append(new Option(c.label, c.key)));
+  const sc = LS.get('context'); if (sc && cfg.contexts.some(c => c.key === sc)) ctxSel.value = sc;
+  ctxSel.onchange = () => LS.set('context', ctxSel.value);
+  cfg.options.forEach(o => {
+    const l = document.createElement('label'); l.className = 'sw';
+    const i = Object.assign(document.createElement('input'), {type: 'checkbox', checked: prefs[o.key] ?? o.default});
+    i.setAttribute('role', 'switch'); i.dataset.key = o.key;
+    i.onchange = () => { const p = LS.get('options') || {}; p[o.key] = i.checked; LS.set('options', p); };
+    const t = document.createElement('span'); t.textContent = o.label; l.append(t, i); $('switches').append(l);
+  });
+  sync();
+})();
+</script>
