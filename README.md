@@ -317,3 +317,7 @@ See [CHANGELOG.md](CHANGELOG.md).
 MIT. Copyright 2025 Siqi Chen (upstream); fork changes by Shakthivel Manivanan. See [LICENSE](LICENSE) and [PROVENANCE.md](PROVENANCE.md).
 
 If Humanizer helps you, a star helps other people find it.
+
+## Web app
+
+`app/` holds an optional web app (FastAPI + one-page UI) that runs this `SKILL.md` through the Claude API, with fidelity checks, a change view and a no-key demo mode. See `app/README.md`.
