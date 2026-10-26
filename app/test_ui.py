@@ -150,7 +150,7 @@ def main():
         # keyboard shortcut
         n = len(CALLS)
         go(page, lambda: (page.focus("#src"), page.keyboard.press("Control+Enter")))
-        check("Ctrl+Enter humanizes", len(CALLS) == n + 2)  # two paragraphs, one call each
+        check("Ctrl+Enter humanizes", len(CALLS) == n + 1)  # both paragraphs fit one chunk, one call
 
         # errors: provider failure, timeout, retry, source preserved
         page.fill("#src", "Please fix [[fail]] this.")

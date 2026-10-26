@@ -94,10 +94,12 @@ DEMO_RULES = [(r"\b(?:Moreover|Furthermore), ", "And "), (r"\bAdditionally, ", "
 
 
 def demo_llm(text):
-    out = text
-    for pat, rep in DEMO_RULES:
-        out = re.sub(pat, rep, out, flags=re.I)
-    return out[:1].upper() + out[1:] if text[:1].isupper() else out
+    def one(p):
+        up = p[:1].isupper()
+        for pat, rep in DEMO_RULES:
+            p = re.sub(pat, rep, p, flags=re.I)
+        return p[:1].upper() + p[1:] if up else p
+    return "\n\n".join(one(p) for p in re.split(r"\n\s*\n", text))
 
 
 def llm(text, context="general", opts=None, sample="", hint=""):
@@ -151,7 +153,7 @@ def words(t):
 def issues(src, out):
     s, o = words(src), words(out)
     r = []
-    if m := sorted(facts(src) - facts(out)):
+    if m := sorted(f for f in facts(src) - facts(out) if f not in out.lower()):  # title case or sentence start is not a lost name
         r.append("missing " + ", ".join(m))
     if a := sorted((o & STRONG) - s):
         r.append("added certainty or magnitude words: " + ", ".join(a))
@@ -173,6 +175,7 @@ def semantic(src, out):
 SENT = re.compile(r"(?<=[.!?])\s+(?=[A-Z\"'(\[])")
 STOP = frozenset("the a an and or but of to in on at for with by from as is are was were be been it its this that these those "
                  "we i you they he she our their his her not no so if then than also just very can has have had do does did".split())
+CHUNK = 400  # words per model call
 SUPPORT, VERIFY = 0.25, os.getenv("VERIFY", "1") == "1"  # SUPPORT: share of an output sentence's content stems found in one source sentence
 REFDIR = Path(__file__).parent / "reference"
 
@@ -200,13 +203,17 @@ def audit(src, out):
     return bad, notes
 
 
+ASK = ("You check a rewrite against its source. List every sentence of the REWRITE that adds, drops, strengthens or weakens "
+       "a claim, number, name, hedge, feeling or opinion from the SOURCE. Ignore cut hype, filler, chatbot pleasantries, "
+       "slogans and closing send-offs, and ignore reworded phrasing that keeps the same strength. Reply with only a JSON "
+       "array of short strings, or [] if every sentence is faithful.")
+
+
 def verify(src, out):
     """Second model pass acting as a strict checker. Returns problem strings; any failure of the check itself returns []."""
     if DEMO or not VERIFY:
         return []
-    ask = ("You check a rewrite against its source. List every sentence of the REWRITE that adds, drops, strengthens or weakens "
-           "a claim, number, name, hedge, feeling or opinion from the SOURCE. Reply with only a JSON array of short strings, "
-           "or [] if every sentence is faithful.")
+    ask = ASK
     for m in MODELS:
         try:
             r = _client().messages.create(model=m, max_tokens=800, system=ask, messages=[
@@ -252,7 +259,7 @@ def check(src, out, sample=""):
     bad, notes = audit(src, out)
     iss = issues(src, out) + bad + copied(src, out, sample)
     nat = natural(src, out)
-    if nat and nat["words"] >= 20 and nat["after"] > nat["before"]:
+    if nat and nat["words"] >= 40 and nat["after"] > nat["before"]:  # shortcut: shorter texts are too noisy to gate on
         iss.append(f"rewrite has more AI tells ({nat['after']}) than the source ({nat['before']}) per 100 words")
     ok = not iss and (sim is None or (sim >= SIM_MIN and ent >= ENT_MIN))
     if ok:  # the model check is the slow, paid step, so it runs only once the cheap checks pass
@@ -276,8 +283,18 @@ def rewrite_one(src, context="general", opts=None, sample=""):
     return best[1]
 
 
+def chunks(text, cap=CHUNK):
+    """Group whole paragraphs into chunks of about `cap` words, so the model sees the context around each one."""
+    out, cur = [], []
+    for p in (p.strip() for p in re.split(r"\n\s*\n", text.strip()) if p.strip()):
+        if cur and sum(len(x.split()) for x in cur) + len(p.split()) > cap:
+            out.append("\n\n".join(cur)); cur = []
+        cur.append(p)
+    return out + ["\n\n".join(cur)] if cur else out
+
+
 def rewrite(text, context="general", opts=None, sample=""):
-    # ponytail: paragraph-level segments, 4 at a time; regenerate is whole-text, not per paragraph
-    segs = [s.strip() for s in re.split(r"\n\s*\n", text.strip()) if s.strip()]
+    # ponytail: chunks of whole paragraphs, 4 at a time; regenerate is whole-text
+    segs = chunks(text)
     with ThreadPoolExecutor(WORKERS) as ex:
         return list(ex.map(lambda s: rewrite_one(s, context, opts, sample), segs))

@@ -95,8 +95,9 @@ def test_retry_gives_up_after_tries_and_flags():
 
 def test_rewrite_keeps_paragraph_order():
     with patched(core, llm=lambda t, *a: t.upper(), semantic=no_semantic):
-        segs = core.rewrite("one\n\ntwo words\n\n\nthree")
-    assert [s["out"] for s in segs] == ["ONE", "TWO WORDS", "THREE"]
+        assert [s["out"] for s in core.rewrite("one\n\ntwo words\n\n\nthree")] == ["ONE\n\nTWO WORDS\n\nTHREE"]
+        segs = core.rewrite("one\n\ntwo words\n\n\nthree", )  # fits one chunk
+        assert core.chunks("a b\n\nc d\n\ne f", cap=3) == ["a b", "c d", "e f"]
 
 
 def test_validation():
@@ -158,7 +159,7 @@ def test_demo_mode_needs_no_key_and_is_flagged():
 
     with patched(core, DEMO=True, semantic=no_semantic, _client=no_call):
         segs = core.rewrite("Moreover, we utilize a robust 15% model — it works.\n\nIn conclusion, it may help.")
-        assert segs[0]["out"] == "And we use a solid 15% model, it works." and segs[1]["out"] == "It may help."
+        assert segs[0]["out"] == "And we use a solid 15% model, it works.\n\nIt may help."
         assert all(s["ok"] for s in segs)
         c = service.config()
         assert c["demo"] is True and c["configured"] is True
@@ -226,3 +227,9 @@ def test_second_pass_blocks_and_survives_failure():
         assert not r["ok"] and r["issues"] == ["sentence 2 adds a claim"]
     with patched(core, VERIFY=True, DEMO=False, _client=lambda: client("not json")):
         assert core.check("It may help.", "It may help.")["ok"]
+
+
+def test_title_case_and_sentence_start_are_not_lost_names():
+    assert core.issues("# My Sourdough Journey", "# My sourdough journey") == []
+    assert core.issues("See Gibbs (2023).", "Gibbs et al. (2023) differ.") == []
+    assert core.issues("Acme grew.", "The firm grew.")  # a real lost name still flags

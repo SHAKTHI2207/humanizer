@@ -13,3 +13,4 @@
 
 ## 0.2.0 (unreleased)
 - Self-check layers run on every paragraph before output: per-sentence audit (unsupported or new-fact sentences block, dropped source sentences are noted), a second model pass that acts as a strict checker, an originality guard (no 8-word runs from the voice sample or `app/reference/*.txt` unless the source has them), and an AI-tell rate check using `eval/tells.py`. Set `VERIFY=0` to skip the second model pass.
+- Fixed from a real-model run on the eval samples: paragraphs are now sent in chunks of up to 400 words, so the model sees the context around each one (single-paragraph calls left tells like "Happy baking!" in place); a name or number counts as lost only if it is absent from the output in any case (title-case headings and sentence-initial names were false alarms); the AI-tell gate applies from 40 words; the checker prompt ignores cut hype, pleasantries and slogans.
