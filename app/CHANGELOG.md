@@ -10,3 +10,6 @@
 - Added request validation, per-client rate limit, timeouts, error mapping, `/config`, `Cache-Control: no-store`.
 - Removed: the earlier tone selector (replaced by writing contexts) and per-paragraph redo (replaced by whole-text regenerate).
 - Tests: `test_core.py` (backend, mocked model) and `test_ui.py` (browser, mocked model).
+
+## 0.2.0 (unreleased)
+- Self-check layers run on every paragraph before output: per-sentence audit (unsupported or new-fact sentences block, dropped source sentences are noted), a second model pass that acts as a strict checker, an originality guard (no 8-word runs from the voice sample or `app/reference/*.txt` unless the source has them), and an AI-tell rate check using `eval/tells.py`. Set `VERIFY=0` to skip the second model pass.

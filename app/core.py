@@ -1,4 +1,4 @@
-import os, re
+import json, os, re, sys
 from concurrent.futures import ThreadPoolExecutor
 from functools import lru_cache
 from pathlib import Path
@@ -169,18 +169,103 @@ def semantic(src, out):
         return None, None
 
 
-def check(src, out):
+# --- self-check layers: every sentence re-verified, originality, naturalness ---
+SENT = re.compile(r"(?<=[.!?])\s+(?=[A-Z\"'(\[])")
+STOP = frozenset("the a an and or but of to in on at for with by from as is are was were be been it its this that these those "
+                 "we i you they he she our their his her not no so if then than also just very can has have had do does did".split())
+SUPPORT, VERIFY = 0.25, os.getenv("VERIFY", "1") == "1"  # SUPPORT: share of an output sentence's content stems found in one source sentence
+REFDIR = Path(__file__).parent / "reference"
+
+
+def sents(t):
+    return [x for x in SENT.split(t.strip()) if x]
+
+
+def stems(t):
+    return {w[:5] for w in words(t) - STOP}  # shortcut: crude prefix stemming, swap for a real stemmer if recall matters
+
+
+def share(a, pool):
+    sa = stems(a)
+    return max((len(sa & stems(b)) / len(sa) for b in pool), default=0) if sa else 1
+
+
+def audit(src, out):
+    """Re-verify every sentence. Returns (blocking problems, notes): new or unsupported output sentences block;
+    source sentences with no counterpart in the output are only noted, since the skill may cut dull parts."""
+    ss, os_ = sents(src), sents(out)
+    bad = [f'unsupported sentence: "{o[:70]}"' for o in os_ if share(o, ss) < SUPPORT]
+    bad += [f'new fact in sentence: "{o[:70]}"' for o in os_ if facts(o) - facts(src)]
+    notes = [f'source sentence not found in the rewrite: "{x[:70]}"' for x in ss if share(x, os_) < SUPPORT]
+    return bad, notes
+
+
+def verify(src, out):
+    """Second model pass acting as a strict checker. Returns problem strings; any failure of the check itself returns []."""
+    if DEMO or not VERIFY:
+        return []
+    ask = ("You check a rewrite against its source. List every sentence of the REWRITE that adds, drops, strengthens or weakens "
+           "a claim, number, name, hedge, feeling or opinion from the SOURCE. Reply with only a JSON array of short strings, "
+           "or [] if every sentence is faithful.")
+    for m in MODELS:
+        try:
+            r = _client().messages.create(model=m, max_tokens=800, system=ask, messages=[
+                {"role": "user", "content": f"SOURCE:\n{src}\n\nREWRITE:\n{out}"}])
+            return [str(x) for x in json.loads(re.search(r"\[.*\]", r.content[0].text, re.S).group(0))][:5]
+        except anthropic.APIError:
+            continue
+        except (AttributeError, ValueError):
+            return []
+    return []
+
+
+@lru_cache
+def _refs():
+    return set().union(*(shingles(p.read_text(errors="ignore")) for p in REFDIR.glob("*.txt")), set())
+
+
+def shingles(t, n=8):
+    w = re.findall(r"[a-z0-9']+", t.lower())
+    return {" ".join(w[i:i + n]) for i in range(len(w) - n + 1)}
+
+
+def copied(src, out, sample=""):
+    """Originality: 8-word runs that appear in the voice sample or the reference texts but not in the source."""
+    hit = shingles(out) & (shingles(sample) | _refs()) - shingles(src)
+    return ["copies a run of 8+ words from the voice sample or reference texts"] if hit else []
+
+
+def natural(src, out):
+    """AI-tell rates (per 100 words, from eval/tells.py) for source and rewrite, or None if the module is missing."""
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "eval"))
+        from tells import score
+    except ImportError:
+        return None
+    a, b = score(src), score(out)
+    return {"before": round(a["tells_total"], 1), "after": round(b["tells_total"], 1),
+            "overcorrection": round(b["overcorrection_total"], 1), "words": b["words"]}
+
+
+def check(src, out, sample=""):
     sim, ent = semantic(src, out)
-    iss = issues(src, out)
-    return {"sim": sim, "entail": ent, "issues": iss, "semantic": sim is not None,
-            "ok": not iss and (sim is None or (sim >= SIM_MIN and ent >= ENT_MIN))}
+    bad, notes = audit(src, out)
+    iss = issues(src, out) + bad + copied(src, out, sample)
+    nat = natural(src, out)
+    if nat and nat["words"] >= 20 and nat["after"] > nat["before"]:
+        iss.append(f"rewrite has more AI tells ({nat['after']}) than the source ({nat['before']}) per 100 words")
+    ok = not iss and (sim is None or (sim >= SIM_MIN and ent >= ENT_MIN))
+    if ok:  # the model check is the slow, paid step, so it runs only once the cheap checks pass
+        iss += verify(src, out)
+        ok = not iss
+    return {"sim": sim, "entail": ent, "issues": iss, "notes": notes, "natural": nat, "semantic": sim is not None, "ok": ok}
 
 
 def rewrite_one(src, context="general", opts=None, sample=""):
     hint, best = "", None
     for _ in range(TRIES):
         out = llm(src, context, opts, sample, hint)
-        c = {"src": src, "out": out, **check(src, out)}
+        c = {"src": src, "out": out, **check(src, out, sample)}
         key = (c["ok"], c["sim"] or 0, -len(c["issues"]))
         if best is None or key > best[0]:
             best = (key, c)

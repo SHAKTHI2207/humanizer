@@ -35,7 +35,7 @@ index.html  ->  POST /rewrite  ->  service.py (validate, rate limit, error mappi
                                               + optional voice sample; model call; fidelity checks; retry)
 ```
 
-- **The skill is the engine.** The repo's root `SKILL.md` (v4.0.0, read at runtime; override with `SKILL_PATH`). `core.system()` sends it as the system prompt, then adds the fidelity rules, the writing context,
+- **The skill is the engine.** The repo's root `SKILL.md` (read at runtime; override with `SKILL_PATH`). `core.system()` sends it as the system prompt, then adds the fidelity rules, the writing context,
   the enabled options and an optional voice sample. The skill's "note after the text" line is overridden so the
   API returns text only.
 - **Writing contexts** (7) and **options** (6) live in `core.CONTEXTS` and `core.OPTIONS`; the UI reads them from
@@ -44,6 +44,7 @@ index.html  ->  POST /rewrite  ->  service.py (validate, rate limit, error mappi
   ("will", "most", "always"...), hedges kept, plus embedding similarity and two-way entailment when the models are
   installed. A failed paragraph is retried up to 3 times with the problem fed back; if it still fails it is kept
   and flagged under "Review notes".
+- **Self-check before output** (every paragraph): each output sentence must trace to a source sentence and add no new fact; a second model pass acts as a strict checker (`VERIFY=0` skips it); output may not copy 8-word runs from the voice sample or from your own `.txt` files in `app/reference/` (never sent to the model); the AI-tell rate from `eval/tells.py` must not rise. Problems feed the retry; what still fails shows under "Review notes".
 - **Voice sample** (optional) steers rhythm and wording from your own writing. Style never comes from a built-in
   example.
 

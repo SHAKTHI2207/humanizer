@@ -14,7 +14,7 @@ from run import HERE, call
 
 
 def verdict(raw):
-    m = re.search(r"\{.*\}", raw, re.S)
+    m = re.search(r"\{[^{}]*\}", raw, re.S)
     return json.loads(m.group(0)) if m else {"human": "tie", "faithful": "tie", "why": "unparsed: " + raw[:200]}
 
 

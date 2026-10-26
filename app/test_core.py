@@ -1,6 +1,8 @@
 """Offline tests: prompt assembly, fidelity checks, retry logic, validation, rate limit, error mapping, privacy.
 Run: python test_core.py   (or pytest). The model is always mocked here; see test_ui.py and README for real-model runs."""
-import contextlib, logging, sys, types
+import contextlib, logging, os, sys, types
+
+os.environ["VERIFY"] = "0"  # the second model pass is mocked in its own test
 
 try:
     import anthropic  # noqa: F401
@@ -194,3 +196,33 @@ if __name__ == "__main__":
             except Exception as e:
                 fails += 1; print("FAIL", name, repr(e))
     sys.exit(1 if fails else 0)
+
+
+def test_every_sentence_is_reverified():
+    src = "Revenue grew 15% in 2024. Results may differ across sectors."
+    assert core.audit(src, "Revenue grew 15% in 2024. Results may differ across sectors.") == ([], [])
+    bad, _ = core.audit(src, "Revenue grew 15% in 2024. Our CEO Maria Lopez was thrilled. Results may differ.")
+    assert any("unsupported" in b for b in bad)
+    bad, _ = core.audit(src, "Revenue grew 22% in 2024.")
+    assert any("new fact" in b for b in bad)
+    _, notes = core.audit(src, "Revenue grew 15% in 2024.")
+    assert any("not found" in n for n in notes)
+
+
+def test_originality_guard():
+    sample = "we shipped the billing fix late on thursday after two long days of testing"
+    assert core.copied("Billing was fixed.", "We shipped the billing fix late on Thursday after two long days of testing.", sample)
+    src = "We shipped the billing fix late on Thursday after two long days of testing."
+    assert core.copied(src, src, sample) == []  # text already in the source is not copying
+
+
+def test_second_pass_blocks_and_survives_failure():
+    class R:  # stand-in for the SDK reply
+        def __init__(self, t): self.content = [types.SimpleNamespace(text=t)]
+    def client(reply):
+        return types.SimpleNamespace(messages=types.SimpleNamespace(create=lambda **k: R(reply)))
+    with patched(core, VERIFY=True, DEMO=False, _client=lambda: client('["sentence 2 adds a claim"]')):
+        r = core.check("It may help.", "It may help.")
+        assert not r["ok"] and r["issues"] == ["sentence 2 adds a claim"]
+    with patched(core, VERIFY=True, DEMO=False, _client=lambda: client("not json")):
+        assert core.check("It may help.", "It may help.")["ok"]
